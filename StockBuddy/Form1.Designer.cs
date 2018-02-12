@@ -62,6 +62,7 @@
             this.titlePane = new System.Windows.Forms.Panel();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -84,29 +85,33 @@
             this.navPan.Controls.Add(this.purchasedBtn);
             this.navPan.Controls.Add(this.stocksBtn);
             this.navPan.Location = new System.Drawing.Point(0, 0);
+            this.navPan.Margin = new System.Windows.Forms.Padding(2);
             this.navPan.Name = "navPan";
-            this.navPan.Size = new System.Drawing.Size(340, 720);
+            this.navPan.Size = new System.Drawing.Size(255, 585);
             this.navPan.TabIndex = 0;
             // 
             // summaryPane
             // 
             this.summaryPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.summaryPane.Controls.Add(this.ResetButton);
             this.summaryPane.Controls.Add(this.profilePicture);
             this.summaryPane.Controls.Add(this.refreshTimerLabel);
             this.summaryPane.Controls.Add(this.amountLabel);
             this.summaryPane.Controls.Add(this.summaryLabel);
             this.summaryPane.Location = new System.Drawing.Point(0, 0);
+            this.summaryPane.Margin = new System.Windows.Forms.Padding(2);
             this.summaryPane.Name = "summaryPane";
-            this.summaryPane.Size = new System.Drawing.Size(340, 316);
+            this.summaryPane.Size = new System.Drawing.Size(255, 257);
             this.summaryPane.TabIndex = 0;
             // 
             // profilePicture
             // 
             this.profilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profilePicture.BackgroundImage")));
             this.profilePicture.InitialImage = null;
-            this.profilePicture.Location = new System.Drawing.Point(26, 12);
+            this.profilePicture.Location = new System.Drawing.Point(20, 10);
+            this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(150, 150);
+            this.profilePicture.Size = new System.Drawing.Size(112, 122);
             this.profilePicture.TabIndex = 4;
             this.profilePicture.TabStop = false;
             // 
@@ -115,9 +120,10 @@
             this.refreshTimerLabel.AutoSize = true;
             this.refreshTimerLabel.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshTimerLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.refreshTimerLabel.Location = new System.Drawing.Point(210, 106);
+            this.refreshTimerLabel.Location = new System.Drawing.Point(158, 86);
+            this.refreshTimerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.refreshTimerLabel.Name = "refreshTimerLabel";
-            this.refreshTimerLabel.Size = new System.Drawing.Size(91, 35);
+            this.refreshTimerLabel.Size = new System.Drawing.Size(71, 28);
             this.refreshTimerLabel.TabIndex = 3;
             this.refreshTimerLabel.Text = "12:43";
             // 
@@ -126,20 +132,21 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Century", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.amountLabel.Location = new System.Drawing.Point(196, 44);
+            this.amountLabel.Location = new System.Drawing.Point(147, 36);
+            this.amountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.amountLabel.Name = "amountLabel";
-            this.amountLabel.Size = new System.Drawing.Size(119, 33);
+            this.amountLabel.Size = new System.Drawing.Size(0, 27);
             this.amountLabel.TabIndex = 2;
-            this.amountLabel.Text = "$20,000";
             // 
             // summaryLabel
             // 
             this.summaryLabel.AutoSize = true;
             this.summaryLabel.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.summaryLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.summaryLabel.Location = new System.Drawing.Point(97, 174);
+            this.summaryLabel.Location = new System.Drawing.Point(73, 141);
+            this.summaryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.summaryLabel.Name = "summaryLabel";
-            this.summaryLabel.Size = new System.Drawing.Size(152, 35);
+            this.summaryLabel.Size = new System.Drawing.Size(121, 28);
             this.summaryLabel.TabIndex = 1;
             this.summaryLabel.Text = "Summary";
             // 
@@ -153,9 +160,10 @@
             this.watchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.watchBtn.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.watchBtn.Location = new System.Drawing.Point(3, 572);
+            this.watchBtn.Location = new System.Drawing.Point(2, 465);
+            this.watchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.watchBtn.Name = "watchBtn";
-            this.watchBtn.Size = new System.Drawing.Size(334, 112);
+            this.watchBtn.Size = new System.Drawing.Size(250, 91);
             this.watchBtn.TabIndex = 3;
             this.watchBtn.Text = "Watch List";
             this.watchBtn.UseVisualStyleBackColor = false;
@@ -171,9 +179,10 @@
             this.purchasedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.purchasedBtn.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.purchasedBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.purchasedBtn.Location = new System.Drawing.Point(3, 454);
+            this.purchasedBtn.Location = new System.Drawing.Point(2, 369);
+            this.purchasedBtn.Margin = new System.Windows.Forms.Padding(2);
             this.purchasedBtn.Name = "purchasedBtn";
-            this.purchasedBtn.Size = new System.Drawing.Size(334, 112);
+            this.purchasedBtn.Size = new System.Drawing.Size(250, 91);
             this.purchasedBtn.TabIndex = 2;
             this.purchasedBtn.Text = "Purchased";
             this.purchasedBtn.UseVisualStyleBackColor = false;
@@ -189,9 +198,10 @@
             this.stocksBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stocksBtn.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stocksBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.stocksBtn.Location = new System.Drawing.Point(3, 336);
+            this.stocksBtn.Location = new System.Drawing.Point(2, 273);
+            this.stocksBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stocksBtn.Name = "stocksBtn";
-            this.stocksBtn.Size = new System.Drawing.Size(334, 112);
+            this.stocksBtn.Size = new System.Drawing.Size(250, 91);
             this.stocksBtn.TabIndex = 1;
             this.stocksBtn.Text = "Stocks";
             this.stocksBtn.UseVisualStyleBackColor = false;
@@ -203,9 +213,10 @@
             this.infoPane.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.infoPane.Controls.Add(this.purchasePanel);
             this.infoPane.Controls.Add(this.stocksPanel);
-            this.infoPane.Location = new System.Drawing.Point(346, 44);
+            this.infoPane.Location = new System.Drawing.Point(260, 36);
+            this.infoPane.Margin = new System.Windows.Forms.Padding(2);
             this.infoPane.Name = "infoPane";
-            this.infoPane.Size = new System.Drawing.Size(922, 664);
+            this.infoPane.Size = new System.Drawing.Size(692, 540);
             this.infoPane.TabIndex = 1;
             // 
             // purchasePanel
@@ -215,8 +226,9 @@
             this.purchasePanel.Controls.Add(this.chart4);
             this.purchasePanel.Controls.Add(this.panel2);
             this.purchasePanel.Location = new System.Drawing.Point(0, 0);
+            this.purchasePanel.Margin = new System.Windows.Forms.Padding(2);
             this.purchasePanel.Name = "purchasePanel";
-            this.purchasePanel.Size = new System.Drawing.Size(922, 661);
+            this.purchasePanel.Size = new System.Drawing.Size(692, 537);
             this.purchasePanel.TabIndex = 2;
             // 
             // chart3
@@ -225,13 +237,14 @@
             chartArea1.BackColor = System.Drawing.Color.Gray;
             chartArea1.Name = "ChartArea1";
             this.chart3.ChartAreas.Add(chartArea1);
-            this.chart3.Location = new System.Drawing.Point(274, 340);
+            this.chart3.Location = new System.Drawing.Point(206, 276);
+            this.chart3.Margin = new System.Windows.Forms.Padding(2);
             this.chart3.Name = "chart3";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Name = "Series1";
             this.chart3.Series.Add(series1);
-            this.chart3.Size = new System.Drawing.Size(596, 300);
+            this.chart3.Size = new System.Drawing.Size(447, 244);
             this.chart3.TabIndex = 2;
             this.chart3.Text = "chart3";
             // 
@@ -241,13 +254,14 @@
             chartArea2.BackColor = System.Drawing.Color.Gray;
             chartArea2.Name = "ChartArea1";
             this.chart4.ChartAreas.Add(chartArea2);
-            this.chart4.Location = new System.Drawing.Point(274, 11);
+            this.chart4.Location = new System.Drawing.Point(206, 9);
+            this.chart4.Margin = new System.Windows.Forms.Padding(2);
             this.chart4.Name = "chart4";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Name = "Series1";
             this.chart4.Series.Add(series2);
-            this.chart4.Size = new System.Drawing.Size(596, 300);
+            this.chart4.Size = new System.Drawing.Size(447, 244);
             this.chart4.TabIndex = 1;
             this.chart4.Text = "chart4";
             // 
@@ -255,9 +269,10 @@
             // 
             this.panel2.Controls.Add(this.listBox1);
             this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Location = new System.Drawing.Point(3, 0);
+            this.panel2.Location = new System.Drawing.Point(2, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(204, 664);
+            this.panel2.Size = new System.Drawing.Size(153, 540);
             this.panel2.TabIndex = 0;
             // 
             // listBox1
@@ -265,10 +280,11 @@
             this.listBox1.BackColor = System.Drawing.Color.Gray;
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(3, 62);
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(2, 50);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(198, 554);
+            this.listBox1.Size = new System.Drawing.Size(150, 444);
             this.listBox1.TabIndex = 1;
             // 
             // textBox1
@@ -276,9 +292,10 @@
             this.textBox1.BackColor = System.Drawing.Color.Gray;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(3, 11);
+            this.textBox1.Location = new System.Drawing.Point(2, 9);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 34);
+            this.textBox1.Size = new System.Drawing.Size(149, 29);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Search";
             // 
@@ -289,8 +306,9 @@
             this.stocksPanel.Controls.Add(this.chart1);
             this.stocksPanel.Controls.Add(this.searchPanel);
             this.stocksPanel.Location = new System.Drawing.Point(0, 0);
+            this.stocksPanel.Margin = new System.Windows.Forms.Padding(2);
             this.stocksPanel.Name = "stocksPanel";
-            this.stocksPanel.Size = new System.Drawing.Size(922, 661);
+            this.stocksPanel.Size = new System.Drawing.Size(692, 537);
             this.stocksPanel.TabIndex = 2;
             // 
             // chart2
@@ -299,13 +317,14 @@
             chartArea3.BackColor = System.Drawing.Color.Gray;
             chartArea3.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea3);
-            this.chart2.Location = new System.Drawing.Point(274, 340);
+            this.chart2.Location = new System.Drawing.Point(206, 276);
+            this.chart2.Margin = new System.Windows.Forms.Padding(2);
             this.chart2.Name = "chart2";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series3.Name = "Series1";
             this.chart2.Series.Add(series3);
-            this.chart2.Size = new System.Drawing.Size(596, 300);
+            this.chart2.Size = new System.Drawing.Size(447, 244);
             this.chart2.TabIndex = 2;
             this.chart2.Text = "chart2";
             // 
@@ -315,13 +334,14 @@
             chartArea4.BackColor = System.Drawing.Color.Gray;
             chartArea4.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea4);
-            this.chart1.Location = new System.Drawing.Point(274, 11);
+            this.chart1.Location = new System.Drawing.Point(206, 9);
+            this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.Name = "Series1";
             this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(596, 300);
+            this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -329,9 +349,10 @@
             // 
             this.searchPanel.Controls.Add(this.searchResultList);
             this.searchPanel.Controls.Add(this.searchText);
-            this.searchPanel.Location = new System.Drawing.Point(3, 0);
+            this.searchPanel.Location = new System.Drawing.Point(2, 0);
+            this.searchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(204, 664);
+            this.searchPanel.Size = new System.Drawing.Size(153, 540);
             this.searchPanel.TabIndex = 0;
             // 
             // searchResultList
@@ -339,10 +360,11 @@
             this.searchResultList.BackColor = System.Drawing.Color.Gray;
             this.searchResultList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchResultList.FormattingEnabled = true;
-            this.searchResultList.ItemHeight = 25;
-            this.searchResultList.Location = new System.Drawing.Point(3, 62);
+            this.searchResultList.ItemHeight = 20;
+            this.searchResultList.Location = new System.Drawing.Point(2, 50);
+            this.searchResultList.Margin = new System.Windows.Forms.Padding(2);
             this.searchResultList.Name = "searchResultList";
-            this.searchResultList.Size = new System.Drawing.Size(198, 554);
+            this.searchResultList.Size = new System.Drawing.Size(150, 444);
             this.searchResultList.TabIndex = 1;
             // 
             // searchText
@@ -350,9 +372,10 @@
             this.searchText.BackColor = System.Drawing.Color.Gray;
             this.searchText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchText.Location = new System.Drawing.Point(3, 11);
+            this.searchText.Location = new System.Drawing.Point(2, 9);
+            this.searchText.Margin = new System.Windows.Forms.Padding(2);
             this.searchText.Name = "searchText";
-            this.searchText.Size = new System.Drawing.Size(198, 34);
+            this.searchText.Size = new System.Drawing.Size(149, 29);
             this.searchText.TabIndex = 0;
             this.searchText.Text = "Search";
             // 
@@ -360,9 +383,10 @@
             // 
             this.titlePane.Controls.Add(this.minimizeBtn);
             this.titlePane.Controls.Add(this.exitButton);
-            this.titlePane.Location = new System.Drawing.Point(346, 0);
+            this.titlePane.Location = new System.Drawing.Point(260, 0);
+            this.titlePane.Margin = new System.Windows.Forms.Padding(2);
             this.titlePane.Name = "titlePane";
-            this.titlePane.Size = new System.Drawing.Size(922, 38);
+            this.titlePane.Size = new System.Drawing.Size(692, 31);
             this.titlePane.TabIndex = 2;
             // 
             // minimizeBtn
@@ -374,9 +398,10 @@
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.minimizeBtn.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.minimizeBtn.Location = new System.Drawing.Point(827, 0);
+            this.minimizeBtn.Location = new System.Drawing.Point(620, 0);
+            this.minimizeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Size = new System.Drawing.Size(43, 38);
+            this.minimizeBtn.Size = new System.Drawing.Size(32, 31);
             this.minimizeBtn.TabIndex = 1;
             this.minimizeBtn.Text = "-";
             this.minimizeBtn.UseVisualStyleBackColor = false;
@@ -391,24 +416,40 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.exitButton.Location = new System.Drawing.Point(876, 0);
+            this.exitButton.Location = new System.Drawing.Point(657, 0);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(43, 38);
+            this.exitButton.Size = new System.Drawing.Size(32, 31);
             this.exitButton.TabIndex = 0;
             this.exitButton.Text = "X";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // ResetButton
+            // 
+            this.ResetButton.FlatAppearance.BorderSize = 0;
+            this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResetButton.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ResetButton.Location = new System.Drawing.Point(79, 190);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(115, 43);
+            this.ResetButton.TabIndex = 5;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = false;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(960, 585);
             this.Controls.Add(this.titlePane);
             this.Controls.Add(this.infoPane);
             this.Controls.Add(this.navPan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.navPan.ResumeLayout(false);
@@ -458,6 +499,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button ResetButton;
     }
 }
 
