@@ -18,6 +18,7 @@ namespace StockBuddy
             InitializeComponent();
             stocksPanel.Hide();
             purchasePanel.Hide();
+            watchlistPanel.Hide();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -43,6 +44,8 @@ namespace StockBuddy
         private void StocksBtn_Click(object sender, EventArgs e)
         {
             handleNav_Click((Button)sender);
+            purchasePanel.Hide();
+            watchlistPanel.Hide();
             stocksPanel.Show();
         }
 
@@ -50,6 +53,7 @@ namespace StockBuddy
         {
             handleNav_Click((Button)sender);
             stocksPanel.Hide();
+            watchlistPanel.Hide();
             purchasePanel.Show();
         }
 
@@ -58,6 +62,7 @@ namespace StockBuddy
             handleNav_Click((Button)sender);
             stocksPanel.Hide();
             purchasePanel.Hide();
+            watchlistPanel.Show();
         }
     }
 }
