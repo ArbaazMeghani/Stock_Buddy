@@ -64,5 +64,10 @@ namespace StockBuddy
             purchasePanel.Hide();
             watchlistPanel.Show();
         }
+
+        private void stocksPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
