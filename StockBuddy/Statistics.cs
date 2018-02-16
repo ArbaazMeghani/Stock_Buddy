@@ -33,11 +33,13 @@ public class Statistics
         return String.Format(base_url, symbol, type, filter);
     }
 
-    public String statistics(String symbol)
+    public Tuple<String, String> statistics(String symbol)
     {
         String url1 = formatURL(symbol, "quote");
         String url2 = formatURL(symbol, "stats");
-        return getRequest(url1).Result + "\n\n" +getRequest(url2).Result;
+        String url1Data = getRequest(url1).Result;
+        String url2Data = getRequest(url2).Result;
+        return new Tuple<String, String>(url1Data, url2Data);
     }
 
     public static Statistics getStatistics()
