@@ -27,7 +27,7 @@ public class Statistics
         String base_url = "https://api.iextrading.com/1.0/stock/{0}/{1}/{2}&format=csv";
         String filter = "";
         if (type.Equals("quote"))
-            filter = "?filter=open,high,low,latestVolume,avgTotalVolume,peRatio,week52High,week52Low";
+            filter = "?filter=open,high,low,latestPrice,latestVolume,avgTotalVolume,peRatio,week52High,week52Low";
         else
             filter = "?filter=marketcap,dividendYield";
         return String.Format(base_url, symbol, type, filter);
