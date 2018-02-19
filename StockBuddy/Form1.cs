@@ -34,7 +34,7 @@ namespace StockBuddy
         private void handleNav_Click(Button clicked)
         {
             if (currentClicked != null)
-                currentClicked.BackColor = Color.FromArgb(64, 64, 64);
+                currentClicked.BackColor = Color.Transparent;
 
             currentClicked = clicked;
             currentClicked.BackColor = Color.Orange;
