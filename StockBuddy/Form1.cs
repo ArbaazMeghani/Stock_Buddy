@@ -69,5 +69,10 @@ namespace StockBuddy
         {
 
         }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
     }
 }
