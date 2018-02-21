@@ -19,8 +19,8 @@ namespace StockBuddy
         {
             InitializeComponent();
             stocksPanel.Hide();
-            purchasePanel.Hide();
-            watchlistPanel.Hide();
+            //purchasePanel.Hide();
+            //watchlistPanel.Hide();
             amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
             Settings.Default["FirstTime"] = true;
             if (Convert.ToBoolean(Settings.Default["FirstTime"]))
@@ -53,28 +53,40 @@ namespace StockBuddy
         private void StocksBtn_Click(object sender, EventArgs e)
         {
             handleNav_Click((Button)sender);
-            purchasePanel.Hide();
-            watchlistPanel.Hide();
+            //purchasePanel.Hide();
+            //watchlistPanel.Hide();
             summary_panel.Hide();
             stocksPanel.Show();
+            removeFromWatchlist.Hide();
+            sellQTYLabel.Show();
+            sellQTYTextbox.Show();
+            addToWatchlist.Show(); 
+            searchResultList.Height = 350; 
         }
 
         private void purchasedBtn_Click(object sender, EventArgs e)
         {
             handleNav_Click((Button)sender);
-            stocksPanel.Hide();
-            watchlistPanel.Hide();
+            stocksPanel.Show();
             summary_panel.Hide();
-            purchasePanel.Show();
+            removeFromWatchlist.Hide();
+            addToWatchlist.Hide();
+            sellQTYLabel.Show();
+            sellQTYTextbox.Show();
+            searchResultList.Height = 425; 
         }
 
         private void watchBtn_Click(object sender, EventArgs e)
         {
             handleNav_Click((Button)sender);
-            stocksPanel.Hide();
+            stocksPanel.Show();
             summary_panel.Hide();
-            purchasePanel.Hide();
-            watchlistPanel.Show();
+            removeFromWatchlist.Show();
+            removeFromWatchlist.Location = new Point(3,403);
+            sellQTYLabel.Hide();
+            sellQTYTextbox.Hide();
+            searchResultList.Height = 350; 
+
         }
 
         private void userInput()
@@ -98,8 +110,8 @@ namespace StockBuddy
         {
             //TODO
             stocksPanel.Hide();
-            purchasePanel.Hide();
-            watchlistPanel.Hide();
+            //purchasePanel.Hide();
+            //watchlistPanel.Hide();
             summary_panel.Show();
         }
     }
