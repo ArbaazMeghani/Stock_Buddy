@@ -45,6 +45,8 @@ namespace StockBuddy
         {
             handleNav_Click((Button)sender);
             purchasePanel.Hide();
+            summary_panel.Hide();
+            purchasePanel.Hide();
             watchlistPanel.Hide();
             stocksPanel.Show();
         }
@@ -53,6 +55,8 @@ namespace StockBuddy
         {
             handleNav_Click((Button)sender);
             stocksPanel.Hide();
+            summary_panel.Hide();
+            purchasePanel.Hide();
             watchlistPanel.Hide();
             purchasePanel.Show();
         }
@@ -61,6 +65,7 @@ namespace StockBuddy
         {
             handleNav_Click((Button)sender);
             stocksPanel.Hide();
+            summary_panel.Hide();
             purchasePanel.Hide();
             watchlistPanel.Show();
         }
@@ -73,6 +78,15 @@ namespace StockBuddy
         private void profilePicture_Click(object sender, EventArgs e)
         {
             //TODO
+            purchasePanel.Hide();
+            watchlistPanel.Hide();
+            stocksPanel.Hide();
+            summary_panel.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
