@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.profilePicture = new System.Windows.Forms.PictureBox();
-            this.refreshTimerLabel = new System.Windows.Forms.Label();
+            this.current_time = new System.Windows.Forms.Label();
             this.amountLabel = new System.Windows.Forms.Label();
             this.watchBtn = new System.Windows.Forms.Button();
             this.purchasedBtn = new System.Windows.Forms.Button();
             this.stocksBtn = new System.Windows.Forms.Button();
             this.infoPane = new System.Windows.Forms.Panel();
+            this.summary_panel = new System.Windows.Forms.Panel();
+            this.net_label2 = new System.Windows.Forms.Label();
             this.watchlistPanel = new System.Windows.Forms.Panel();
             this.label72 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
@@ -158,13 +160,12 @@
             this.titlePane = new System.Windows.Forms.Panel();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.summary_panel = new System.Windows.Forms.Panel();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
+            this.net_label = new System.Windows.Forms.Label();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.infoPane.SuspendLayout();
+            this.summary_panel.SuspendLayout();
             this.watchlistPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.panel3.SuspendLayout();
@@ -175,7 +176,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.titlePane.SuspendLayout();
-            this.summary_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navPan
@@ -186,7 +186,7 @@
             this.navPan.Controls.Add(this.purchasedBtn);
             this.navPan.Controls.Add(this.stocksBtn);
             this.navPan.Location = new System.Drawing.Point(-1, 23);
-            this.navPan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.navPan.Margin = new System.Windows.Forms.Padding(2);
             this.navPan.Name = "navPan";
             this.navPan.Size = new System.Drawing.Size(256, 563);
             this.navPan.TabIndex = 0;
@@ -194,11 +194,12 @@
             // summaryPane
             // 
             this.summaryPane.BackColor = System.Drawing.Color.Transparent;
+            this.summaryPane.Controls.Add(this.net_label);
             this.summaryPane.Controls.Add(this.profilePicture);
-            this.summaryPane.Controls.Add(this.refreshTimerLabel);
+            this.summaryPane.Controls.Add(this.current_time);
             this.summaryPane.Controls.Add(this.amountLabel);
             this.summaryPane.Location = new System.Drawing.Point(0, 0);
-            this.summaryPane.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.summaryPane.Margin = new System.Windows.Forms.Padding(2);
             this.summaryPane.Name = "summaryPane";
             this.summaryPane.Size = new System.Drawing.Size(255, 257);
             this.summaryPane.TabIndex = 0;
@@ -208,25 +209,25 @@
             this.profilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profilePicture.BackgroundImage")));
             this.profilePicture.InitialImage = null;
             this.profilePicture.Location = new System.Drawing.Point(12, 13);
-            this.profilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.Size = new System.Drawing.Size(120, 119);
             this.profilePicture.TabIndex = 4;
             this.profilePicture.TabStop = false;
             this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
             // 
-            // refreshTimerLabel
+            // current_time
             // 
-            this.refreshTimerLabel.AutoSize = true;
-            this.refreshTimerLabel.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshTimerLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.refreshTimerLabel.Location = new System.Drawing.Point(181, 13);
-            this.refreshTimerLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.refreshTimerLabel.MaximumSize = new System.Drawing.Size(71, 28);
-            this.refreshTimerLabel.Name = "refreshTimerLabel";
-            this.refreshTimerLabel.Size = new System.Drawing.Size(71, 28);
-            this.refreshTimerLabel.TabIndex = 3;
-            this.refreshTimerLabel.Text = "12:43";
+            this.current_time.AutoSize = true;
+            this.current_time.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_time.ForeColor = System.Drawing.Color.Gainsboro;
+            this.current_time.Location = new System.Drawing.Point(181, 13);
+            this.current_time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.current_time.MaximumSize = new System.Drawing.Size(71, 28);
+            this.current_time.Name = "current_time";
+            this.current_time.Size = new System.Drawing.Size(71, 28);
+            this.current_time.TabIndex = 3;
+            this.current_time.Text = "12:43";
             // 
             // amountLabel
             // 
@@ -251,7 +252,7 @@
             this.watchBtn.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.watchBtn.ForeColor = System.Drawing.Color.Gainsboro;
             this.watchBtn.Location = new System.Drawing.Point(2, 465);
-            this.watchBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.watchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.watchBtn.Name = "watchBtn";
             this.watchBtn.Size = new System.Drawing.Size(250, 91);
             this.watchBtn.TabIndex = 3;
@@ -270,7 +271,7 @@
             this.purchasedBtn.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.purchasedBtn.ForeColor = System.Drawing.Color.Gainsboro;
             this.purchasedBtn.Location = new System.Drawing.Point(2, 369);
-            this.purchasedBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.purchasedBtn.Margin = new System.Windows.Forms.Padding(2);
             this.purchasedBtn.Name = "purchasedBtn";
             this.purchasedBtn.Size = new System.Drawing.Size(250, 91);
             this.purchasedBtn.TabIndex = 2;
@@ -289,7 +290,7 @@
             this.stocksBtn.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stocksBtn.ForeColor = System.Drawing.Color.Gainsboro;
             this.stocksBtn.Location = new System.Drawing.Point(0, 273);
-            this.stocksBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stocksBtn.Margin = new System.Windows.Forms.Padding(2);
             this.stocksBtn.Name = "stocksBtn";
             this.stocksBtn.Size = new System.Drawing.Size(252, 91);
             this.stocksBtn.TabIndex = 1;
@@ -306,10 +307,29 @@
             this.infoPane.Controls.Add(this.purchasePanel);
             this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Location = new System.Drawing.Point(260, 36);
-            this.infoPane.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.infoPane.Margin = new System.Windows.Forms.Padding(2);
             this.infoPane.Name = "infoPane";
             this.infoPane.Size = new System.Drawing.Size(692, 540);
             this.infoPane.TabIndex = 1;
+            // 
+            // summary_panel
+            // 
+            this.summary_panel.Controls.Add(this.net_label2);
+            this.summary_panel.Location = new System.Drawing.Point(0, 0);
+            this.summary_panel.Name = "summary_panel";
+            this.summary_panel.Size = new System.Drawing.Size(692, 543);
+            this.summary_panel.TabIndex = 32;
+            // 
+            // net_label2
+            // 
+            this.net_label2.AutoSize = true;
+            this.net_label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.net_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.net_label2.Location = new System.Drawing.Point(22, 13);
+            this.net_label2.Name = "net_label2";
+            this.net_label2.Size = new System.Drawing.Size(51, 24);
+            this.net_label2.TabIndex = 0;
+            this.net_label2.Text = "NET";
             // 
             // watchlistPanel
             // 
@@ -345,7 +365,7 @@
             this.watchlistPanel.Controls.Add(this.button13);
             this.watchlistPanel.Controls.Add(this.panel3);
             this.watchlistPanel.Location = new System.Drawing.Point(0, 0);
-            this.watchlistPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.watchlistPanel.Margin = new System.Windows.Forms.Padding(2);
             this.watchlistPanel.Name = "watchlistPanel";
             this.watchlistPanel.Size = new System.Drawing.Size(692, 537);
             this.watchlistPanel.TabIndex = 5;
@@ -463,16 +483,16 @@
             // chart3
             // 
             this.chart3.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea4.BackColor = System.Drawing.Color.Gray;
-            chartArea4.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea4);
+            chartArea1.BackColor = System.Drawing.Color.Gray;
+            chartArea1.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea1);
             this.chart3.Location = new System.Drawing.Point(206, 27);
-            this.chart3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chart3.Margin = new System.Windows.Forms.Padding(2);
             this.chart3.Name = "chart3";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Name = "Series1";
-            this.chart3.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            this.chart3.Series.Add(series1);
             this.chart3.Size = new System.Drawing.Size(447, 244);
             this.chart3.TabIndex = 1;
             this.chart3.Text = "chart3";
@@ -628,7 +648,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.DarkOrange;
             this.button4.Location = new System.Drawing.Point(585, 7);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(68, 21);
             this.button4.TabIndex = 7;
@@ -640,7 +660,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.ForeColor = System.Drawing.Color.DarkOrange;
             this.button9.Location = new System.Drawing.Point(513, 7);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(68, 21);
             this.button9.TabIndex = 6;
@@ -652,7 +672,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.ForeColor = System.Drawing.Color.DarkOrange;
             this.button10.Location = new System.Drawing.Point(441, 7);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(68, 21);
             this.button10.TabIndex = 5;
@@ -664,7 +684,7 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.ForeColor = System.Drawing.Color.DarkOrange;
             this.button11.Location = new System.Drawing.Point(369, 7);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(68, 21);
             this.button11.TabIndex = 4;
@@ -676,7 +696,7 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.ForeColor = System.Drawing.Color.DarkOrange;
             this.button12.Location = new System.Drawing.Point(297, 7);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Margin = new System.Windows.Forms.Padding(2);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(68, 21);
             this.button12.TabIndex = 3;
@@ -688,7 +708,7 @@
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.ForeColor = System.Drawing.Color.DarkOrange;
             this.button13.Location = new System.Drawing.Point(225, 8);
-            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button13.Margin = new System.Windows.Forms.Padding(2);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(68, 21);
             this.button13.TabIndex = 2;
@@ -702,7 +722,7 @@
             this.panel3.Controls.Add(this.listBox2);
             this.panel3.Controls.Add(this.textBox8);
             this.panel3.Location = new System.Drawing.Point(2, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(153, 540);
             this.panel3.TabIndex = 0;
@@ -710,7 +730,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(72, 490);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(79, 20);
             this.textBox7.TabIndex = 21;
@@ -734,7 +754,7 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 20;
             this.listBox2.Location = new System.Drawing.Point(2, 42);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(150, 424);
             this.listBox2.TabIndex = 1;
@@ -746,7 +766,7 @@
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.textBox8.Location = new System.Drawing.Point(2, 9);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(149, 29);
             this.textBox8.TabIndex = 0;
@@ -787,7 +807,7 @@
             this.purchasePanel.Controls.Add(this.button8);
             this.purchasePanel.Controls.Add(this.panel2);
             this.purchasePanel.Location = new System.Drawing.Point(0, 0);
-            this.purchasePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.purchasePanel.Margin = new System.Windows.Forms.Padding(2);
             this.purchasePanel.Name = "purchasePanel";
             this.purchasePanel.Size = new System.Drawing.Size(692, 537);
             this.purchasePanel.TabIndex = 4;
@@ -905,16 +925,16 @@
             // chart2
             // 
             this.chart2.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea5.BackColor = System.Drawing.Color.Gray;
-            chartArea5.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea5);
+            chartArea2.BackColor = System.Drawing.Color.Gray;
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Location = new System.Drawing.Point(206, 27);
-            this.chart2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chart2.Margin = new System.Windows.Forms.Padding(2);
             this.chart2.Name = "chart2";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Name = "Series1";
-            this.chart2.Series.Add(series5);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(447, 244);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
@@ -1071,7 +1091,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.DarkOrange;
             this.button1.Location = new System.Drawing.Point(585, 7);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 21);
             this.button1.TabIndex = 7;
@@ -1083,7 +1103,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.DarkOrange;
             this.button2.Location = new System.Drawing.Point(513, 7);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(68, 21);
             this.button2.TabIndex = 6;
@@ -1095,7 +1115,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.DarkOrange;
             this.button5.Location = new System.Drawing.Point(441, 7);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(68, 21);
             this.button5.TabIndex = 5;
@@ -1107,7 +1127,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.Color.DarkOrange;
             this.button6.Location = new System.Drawing.Point(369, 7);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(68, 21);
             this.button6.TabIndex = 4;
@@ -1119,7 +1139,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.ForeColor = System.Drawing.Color.DarkOrange;
             this.button7.Location = new System.Drawing.Point(297, 7);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(68, 21);
             this.button7.TabIndex = 3;
@@ -1131,7 +1151,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.ForeColor = System.Drawing.Color.DarkOrange;
             this.button8.Location = new System.Drawing.Point(225, 7);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(68, 21);
             this.button8.TabIndex = 2;
@@ -1147,7 +1167,7 @@
             this.panel2.Controls.Add(this.listBox1);
             this.panel2.Controls.Add(this.textBox6);
             this.panel2.Location = new System.Drawing.Point(2, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(153, 540);
             this.panel2.TabIndex = 0;
@@ -1155,7 +1175,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(73, 453);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(79, 20);
             this.textBox1.TabIndex = 23;
@@ -1175,7 +1195,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(73, 431);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(79, 20);
             this.textBox5.TabIndex = 21;
@@ -1199,7 +1219,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(2, 42);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(150, 364);
             this.listBox1.TabIndex = 1;
@@ -1211,7 +1231,7 @@
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.textBox6.Location = new System.Drawing.Point(2, 9);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(149, 29);
             this.textBox6.TabIndex = 0;
@@ -1252,7 +1272,7 @@
             this.stocksPanel.Controls.Add(this.Day);
             this.stocksPanel.Controls.Add(this.searchPanel);
             this.stocksPanel.Location = new System.Drawing.Point(0, 0);
-            this.stocksPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stocksPanel.Margin = new System.Windows.Forms.Padding(2);
             this.stocksPanel.Name = "stocksPanel";
             this.stocksPanel.Size = new System.Drawing.Size(692, 537);
             this.stocksPanel.TabIndex = 2;
@@ -1380,16 +1400,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea6.BackColor = System.Drawing.Color.Gray;
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
+            chartArea3.BackColor = System.Drawing.Color.Gray;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(206, 27);
-            this.chart1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -1545,7 +1565,7 @@
             this.Year5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Year5.ForeColor = System.Drawing.Color.DarkOrange;
             this.Year5.Location = new System.Drawing.Point(585, 7);
-            this.Year5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Year5.Margin = new System.Windows.Forms.Padding(2);
             this.Year5.Name = "Year5";
             this.Year5.Size = new System.Drawing.Size(68, 21);
             this.Year5.TabIndex = 7;
@@ -1557,7 +1577,7 @@
             this.Year1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Year1.ForeColor = System.Drawing.Color.DarkOrange;
             this.Year1.Location = new System.Drawing.Point(513, 7);
-            this.Year1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Year1.Margin = new System.Windows.Forms.Padding(2);
             this.Year1.Name = "Year1";
             this.Year1.Size = new System.Drawing.Size(68, 21);
             this.Year1.TabIndex = 6;
@@ -1569,7 +1589,7 @@
             this.Month6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Month6.ForeColor = System.Drawing.Color.DarkOrange;
             this.Month6.Location = new System.Drawing.Point(441, 7);
-            this.Month6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Month6.Margin = new System.Windows.Forms.Padding(2);
             this.Month6.Name = "Month6";
             this.Month6.Size = new System.Drawing.Size(68, 21);
             this.Month6.TabIndex = 5;
@@ -1581,7 +1601,7 @@
             this.Month3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Month3.ForeColor = System.Drawing.Color.DarkOrange;
             this.Month3.Location = new System.Drawing.Point(369, 7);
-            this.Month3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Month3.Margin = new System.Windows.Forms.Padding(2);
             this.Month3.Name = "Month3";
             this.Month3.Size = new System.Drawing.Size(68, 21);
             this.Month3.TabIndex = 4;
@@ -1593,7 +1613,7 @@
             this.Month1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Month1.ForeColor = System.Drawing.Color.DarkOrange;
             this.Month1.Location = new System.Drawing.Point(297, 7);
-            this.Month1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Month1.Margin = new System.Windows.Forms.Padding(2);
             this.Month1.Name = "Month1";
             this.Month1.Size = new System.Drawing.Size(68, 21);
             this.Month1.TabIndex = 3;
@@ -1606,7 +1626,7 @@
             this.Day.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Day.ForeColor = System.Drawing.Color.DarkOrange;
             this.Day.Location = new System.Drawing.Point(225, 7);
-            this.Day.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Day.Margin = new System.Windows.Forms.Padding(2);
             this.Day.Name = "Day";
             this.Day.Size = new System.Drawing.Size(68, 21);
             this.Day.TabIndex = 2;
@@ -1623,7 +1643,7 @@
             this.searchPanel.Controls.Add(this.searchResultList);
             this.searchPanel.Controls.Add(this.searchText);
             this.searchPanel.Location = new System.Drawing.Point(2, 0);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(153, 540);
             this.searchPanel.TabIndex = 0;
@@ -1639,7 +1659,7 @@
             this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Gainsboro;
             this.button3.Location = new System.Drawing.Point(3, 409);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(147, 62);
             this.button3.TabIndex = 24;
@@ -1649,7 +1669,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(72, 378);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(79, 20);
             this.textBox4.TabIndex = 23;
@@ -1669,7 +1689,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(72, 342);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(79, 20);
             this.textBox3.TabIndex = 21;
@@ -1693,7 +1713,7 @@
             this.searchResultList.FormattingEnabled = true;
             this.searchResultList.ItemHeight = 20;
             this.searchResultList.Location = new System.Drawing.Point(2, 42);
-            this.searchResultList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchResultList.Margin = new System.Windows.Forms.Padding(2);
             this.searchResultList.Name = "searchResultList";
             this.searchResultList.Size = new System.Drawing.Size(150, 264);
             this.searchResultList.TabIndex = 1;
@@ -1705,7 +1725,7 @@
             this.searchText.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.searchText.Location = new System.Drawing.Point(2, 9);
-            this.searchText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchText.Margin = new System.Windows.Forms.Padding(2);
             this.searchText.Name = "searchText";
             this.searchText.Size = new System.Drawing.Size(149, 29);
             this.searchText.TabIndex = 0;
@@ -1717,7 +1737,7 @@
             this.titlePane.Controls.Add(this.minimizeBtn);
             this.titlePane.Controls.Add(this.exitButton);
             this.titlePane.Location = new System.Drawing.Point(259, 2);
-            this.titlePane.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titlePane.Margin = new System.Windows.Forms.Padding(2);
             this.titlePane.Name = "titlePane";
             this.titlePane.Size = new System.Drawing.Size(703, 33);
             this.titlePane.TabIndex = 2;
@@ -1732,7 +1752,7 @@
             this.minimizeBtn.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.Gainsboro;
             this.minimizeBtn.Location = new System.Drawing.Point(630, 0);
-            this.minimizeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimizeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(33, 25);
             this.minimizeBtn.TabIndex = 1;
@@ -1750,7 +1770,7 @@
             this.exitButton.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Gainsboro;
             this.exitButton.Location = new System.Drawing.Point(667, 0);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(34, 25);
             this.exitButton.TabIndex = 0;
@@ -1758,36 +1778,16 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // summary_panel
+            // net_label
             // 
-            this.summary_panel.Controls.Add(this.label74);
-            this.summary_panel.Controls.Add(this.label73);
-            this.summary_panel.Location = new System.Drawing.Point(0, 0);
-            this.summary_panel.Name = "summary_panel";
-            this.summary_panel.Size = new System.Drawing.Size(692, 543);
-            this.summary_panel.TabIndex = 32;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.ForeColor = System.Drawing.Color.Lime;
-            this.label73.Location = new System.Drawing.Point(22, 13);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(42, 44);
-            this.label73.TabIndex = 0;
-            this.label73.Text = "+";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.ForeColor = System.Drawing.Color.Red;
-            this.label74.Location = new System.Drawing.Point(22, 75);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(41, 44);
-            this.label74.TabIndex = 1;
-            this.label74.Text = "_";
+            this.net_label.AutoSize = true;
+            this.net_label.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.net_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.net_label.Location = new System.Drawing.Point(13, 186);
+            this.net_label.Name = "net_label";
+            this.net_label.Size = new System.Drawing.Size(46, 25);
+            this.net_label.TabIndex = 5;
+            this.net_label.Text = "NET";
             // 
             // Form1
             // 
@@ -1801,7 +1801,7 @@
             this.Controls.Add(this.infoPane);
             this.Controls.Add(this.navPan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.navPan.ResumeLayout(false);
@@ -1809,6 +1809,8 @@
             this.summaryPane.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.infoPane.ResumeLayout(false);
+            this.summary_panel.ResumeLayout(false);
+            this.summary_panel.PerformLayout();
             this.watchlistPanel.ResumeLayout(false);
             this.watchlistPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
@@ -1825,8 +1827,6 @@
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.titlePane.ResumeLayout(false);
-            this.summary_panel.ResumeLayout(false);
-            this.summary_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1842,7 +1842,7 @@
         private System.Windows.Forms.Panel titlePane;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Label refreshTimerLabel;
+        private System.Windows.Forms.Label current_time;
         private System.Windows.Forms.Label amountLabel;
         private System.Windows.Forms.PictureBox profilePicture;
         private System.Windows.Forms.Panel stocksPanel;
@@ -1957,8 +1957,8 @@
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Panel summary_panel;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label net_label2;
+        private System.Windows.Forms.Label net_label;
     }
 }
 
