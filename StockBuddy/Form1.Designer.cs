@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -116,15 +116,13 @@
             // summaryPane
             // 
             this.summaryPane.BackColor = System.Drawing.Color.Transparent;
-            this.summaryPane.Controls.Add(this.current_date);
             this.summaryPane.Controls.Add(this.net_label);
             this.summaryPane.Controls.Add(this.profilePicture);
-            this.summaryPane.Controls.Add(this.current_time);
             this.summaryPane.Controls.Add(this.amountLabel);
-            this.summaryPane.Location = new System.Drawing.Point(0, -12);
+            this.summaryPane.Location = new System.Drawing.Point(2, -12);
             this.summaryPane.Margin = new System.Windows.Forms.Padding(2);
             this.summaryPane.Name = "summaryPane";
-            this.summaryPane.Size = new System.Drawing.Size(255, 269);
+            this.summaryPane.Size = new System.Drawing.Size(253, 281);
             this.summaryPane.TabIndex = 0;
             // 
             // net_label
@@ -132,7 +130,7 @@
             this.net_label.AutoSize = true;
             this.net_label.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.net_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.net_label.Location = new System.Drawing.Point(13, 186);
+            this.net_label.Location = new System.Drawing.Point(12, 228);
             this.net_label.Name = "net_label";
             this.net_label.Size = new System.Drawing.Size(46, 25);
             this.net_label.TabIndex = 5;
@@ -142,7 +140,7 @@
             // 
             this.profilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profilePicture.BackgroundImage")));
             this.profilePicture.InitialImage = null;
-            this.profilePicture.Location = new System.Drawing.Point(12, 13);
+            this.profilePicture.Location = new System.Drawing.Point(67, 0);
             this.profilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.Size = new System.Drawing.Size(120, 119);
@@ -155,7 +153,7 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Century", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.amountLabel.Location = new System.Drawing.Point(12, 146);
+            this.amountLabel.Location = new System.Drawing.Point(12, 168);
             this.amountLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(90, 27);
@@ -384,16 +382,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea11.BackColor = System.Drawing.Color.Gray;
-            chartArea11.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea11);
+            chartArea13.BackColor = System.Drawing.Color.Gray;
+            chartArea13.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea13);
             this.chart1.Location = new System.Drawing.Point(206, 27);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Name = "Series1";
-            this.chart1.Series.Add(series11);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Name = "Series1";
+            this.chart1.Series.Add(series13);
             this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -762,8 +760,10 @@
             // titlePane
             // 
             this.titlePane.BackColor = System.Drawing.Color.Transparent;
+            this.titlePane.Controls.Add(this.current_date);
             this.titlePane.Controls.Add(this.minimizeBtn);
             this.titlePane.Controls.Add(this.exitButton);
+            this.titlePane.Controls.Add(this.current_time);
             this.titlePane.Location = new System.Drawing.Point(259, 2);
             this.titlePane.Margin = new System.Windows.Forms.Padding(2);
             this.titlePane.Name = "titlePane";
@@ -823,11 +823,11 @@
             // current_date
             // 
             this.current_date.AutoSize = true;
-            this.current_date.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_date.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.current_date.ForeColor = System.Drawing.Color.Gainsboro;
-            this.current_date.Location = new System.Drawing.Point(137, 12);
+            this.current_date.Location = new System.Drawing.Point(5, 5);
             this.current_date.Name = "current_date";
-            this.current_date.Size = new System.Drawing.Size(108, 23);
+            this.current_date.Size = new System.Drawing.Size(120, 25);
             this.current_date.TabIndex = 6;
             this.current_date.Text = "88/88/8888";
             this.current_date.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -841,16 +841,17 @@
             // current_time
             // 
             this.current_time.AutoSize = true;
-            this.current_time.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_time.Font = new System.Drawing.Font("Century", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.current_time.ForeColor = System.Drawing.Color.Gainsboro;
             this.current_time.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.current_time.Location = new System.Drawing.Point(150, 104);
+            this.current_time.Location = new System.Drawing.Point(509, 5);
             this.current_time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.current_time.Name = "current_time";
-            this.current_time.Size = new System.Drawing.Size(104, 28);
+            this.current_time.Size = new System.Drawing.Size(96, 25);
             this.current_time.TabIndex = 3;
             this.current_time.Text = "12:43:99";
-            this.current_time.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.current_time.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.current_time.Click += new System.EventHandler(this.current_time_Click);
             // 
             // Form1
             // 
@@ -880,6 +881,7 @@
             this.summary_panel.ResumeLayout(false);
             this.summary_panel.PerformLayout();
             this.titlePane.ResumeLayout(false);
+            this.titlePane.PerformLayout();
             this.ResumeLayout(false);
 
         }

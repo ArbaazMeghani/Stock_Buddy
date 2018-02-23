@@ -173,7 +173,12 @@ namespace StockBuddy
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.current_time.Text = DateTime.Now.ToString("hh:mm:ss");
-            this.current_date.Text = DateTime.Now.ToString("MMMM dd\nyyyy");
+            this.current_date.Text = DateTime.Now.ToString("MMMM dd, yyyy");
+        }
+
+        private void current_time_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
