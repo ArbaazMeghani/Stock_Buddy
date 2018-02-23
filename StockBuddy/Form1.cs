@@ -14,6 +14,7 @@ namespace StockBuddy
     public partial class Form1 : Form
     {
         Button currentClicked = null;
+        Button graphTabClicked = null;
         public string input;
         public Form1()
         {
@@ -47,6 +48,21 @@ namespace StockBuddy
 
             currentClicked = clicked;
             currentClicked.BackColor = Color.Orange;
+            
+        }
+
+        private void handleGraphTabs_Click(Button clicked)
+        {
+           
+                if (graphTabClicked != null)
+                {
+                    graphTabClicked.BackColor = Color.Transparent;
+                    graphTabClicked.ForeColor = Color.DarkOrange;
+                }
+
+                graphTabClicked = clicked;
+                graphTabClicked.BackColor = Color.DarkOrange;
+                graphTabClicked.ForeColor = Color.WhiteSmoke;
             
         }
 
@@ -108,11 +124,38 @@ namespace StockBuddy
 
         private void profilePicture_Click(object sender, EventArgs e)
         {
-            //TODO
             stocksPanel.Hide();
-            //purchasePanel.Hide();
-            //watchlistPanel.Hide();
             summary_panel.Show();
+        }
+
+        private void Day_Click(object sender, EventArgs e)
+        {
+            handleGraphTabs_Click((Button)sender);
+        }
+
+        private void Month1_Click(object sender, EventArgs e)
+        {
+            handleGraphTabs_Click((Button)sender);
+        }
+
+        private void Month3_Click(object sender, EventArgs e)
+        {
+            handleGraphTabs_Click((Button)sender);
+        }
+
+        private void Month6_Click(object sender, EventArgs e)
+        {
+            handleGraphTabs_Click((Button)sender);
+        }
+
+        private void Year1_Click(object sender, EventArgs e)
+        {
+            handleGraphTabs_Click((Button)sender);
+        }
+
+        private void Year5_Click(object sender, EventArgs e)
+        {
+            handleGraphTabs_Click((Button)sender);
         }
     }
 }

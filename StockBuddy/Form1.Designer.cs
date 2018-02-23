@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -41,8 +41,6 @@
             this.purchasedBtn = new System.Windows.Forms.Button();
             this.stocksBtn = new System.Windows.Forms.Button();
             this.infoPane = new System.Windows.Forms.Panel();
-            this.summary_panel = new System.Windows.Forms.Panel();
-            this.net_label2 = new System.Windows.Forms.Label();
             this.stocksPanel = new System.Windows.Forms.Panel();
             this.divYield = new System.Windows.Forms.Label();
             this.peRatio = new System.Windows.Forms.Label();
@@ -74,6 +72,7 @@
             this.Month1 = new System.Windows.Forms.Button();
             this.Day = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.removeFromWatchlist = new System.Windows.Forms.Button();
             this.addToWatchlist = new System.Windows.Forms.Button();
             this.sellQTYTextbox = new System.Windows.Forms.TextBox();
             this.sellQTYLabel = new System.Windows.Forms.Label();
@@ -81,18 +80,19 @@
             this.purchaseQTYLabel = new System.Windows.Forms.Label();
             this.searchResultList = new System.Windows.Forms.ListBox();
             this.searchText = new System.Windows.Forms.TextBox();
+            this.summary_panel = new System.Windows.Forms.Panel();
+            this.net_label2 = new System.Windows.Forms.Label();
             this.titlePane = new System.Windows.Forms.Panel();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.removeFromWatchlist = new System.Windows.Forms.Button();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.infoPane.SuspendLayout();
-            this.summary_panel.SuspendLayout();
             this.stocksPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.searchPanel.SuspendLayout();
+            this.summary_panel.SuspendLayout();
             this.titlePane.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -238,25 +238,6 @@
             this.infoPane.Name = "infoPane";
             this.infoPane.Size = new System.Drawing.Size(692, 540);
             this.infoPane.TabIndex = 1;
-            // 
-            // summary_panel
-            // 
-            this.summary_panel.Controls.Add(this.net_label2);
-            this.summary_panel.Location = new System.Drawing.Point(0, 0);
-            this.summary_panel.Name = "summary_panel";
-            this.summary_panel.Size = new System.Drawing.Size(692, 543);
-            this.summary_panel.TabIndex = 32;
-            // 
-            // net_label2
-            // 
-            this.net_label2.AutoSize = true;
-            this.net_label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.net_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.net_label2.Location = new System.Drawing.Point(22, 13);
-            this.net_label2.Name = "net_label2";
-            this.net_label2.Size = new System.Drawing.Size(51, 24);
-            this.net_label2.TabIndex = 0;
-            this.net_label2.Text = "NET";
             // 
             // stocksPanel
             // 
@@ -411,16 +392,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea1.BackColor = System.Drawing.Color.Gray;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea7.BackColor = System.Drawing.Color.Gray;
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
             this.chart1.Location = new System.Drawing.Point(206, 27);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Name = "Series1";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -581,6 +562,7 @@
             this.Year5.TabIndex = 7;
             this.Year5.Text = "5 Years";
             this.Year5.UseVisualStyleBackColor = true;
+            this.Year5.Click += new System.EventHandler(this.Year5_Click);
             // 
             // Year1
             // 
@@ -593,6 +575,7 @@
             this.Year1.TabIndex = 6;
             this.Year1.Text = "1 Year";
             this.Year1.UseVisualStyleBackColor = true;
+            this.Year1.Click += new System.EventHandler(this.Year1_Click);
             // 
             // Month6
             // 
@@ -605,6 +588,7 @@
             this.Month6.TabIndex = 5;
             this.Month6.Text = "6 Months";
             this.Month6.UseVisualStyleBackColor = true;
+            this.Month6.Click += new System.EventHandler(this.Month6_Click);
             // 
             // Month3
             // 
@@ -617,6 +601,7 @@
             this.Month3.TabIndex = 4;
             this.Month3.Text = "3 Months";
             this.Month3.UseVisualStyleBackColor = true;
+            this.Month3.Click += new System.EventHandler(this.Month3_Click);
             // 
             // Month1
             // 
@@ -629,6 +614,7 @@
             this.Month1.TabIndex = 3;
             this.Month1.Text = "1 Month";
             this.Month1.UseVisualStyleBackColor = true;
+            this.Month1.Click += new System.EventHandler(this.Month1_Click);
             // 
             // Day
             // 
@@ -642,6 +628,7 @@
             this.Day.TabIndex = 2;
             this.Day.Text = "1 Day";
             this.Day.UseVisualStyleBackColor = false;
+            this.Day.Click += new System.EventHandler(this.Day_Click);
             // 
             // searchPanel
             // 
@@ -658,6 +645,24 @@
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(153, 540);
             this.searchPanel.TabIndex = 0;
+            // 
+            // removeFromWatchlist
+            // 
+            this.removeFromWatchlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.removeFromWatchlist.FlatAppearance.BorderSize = 0;
+            this.removeFromWatchlist.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray;
+            this.removeFromWatchlist.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.removeFromWatchlist.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.removeFromWatchlist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.removeFromWatchlist.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeFromWatchlist.ForeColor = System.Drawing.Color.Gainsboro;
+            this.removeFromWatchlist.Location = new System.Drawing.Point(3, 332);
+            this.removeFromWatchlist.Margin = new System.Windows.Forms.Padding(2);
+            this.removeFromWatchlist.Name = "removeFromWatchlist";
+            this.removeFromWatchlist.Size = new System.Drawing.Size(147, 62);
+            this.removeFromWatchlist.TabIndex = 25;
+            this.removeFromWatchlist.Text = "REMOVE FROM WATCHLIST";
+            this.removeFromWatchlist.UseVisualStyleBackColor = false;
             // 
             // addToWatchlist
             // 
@@ -742,6 +747,25 @@
             this.searchText.TabIndex = 0;
             this.searchText.Text = "Search";
             // 
+            // summary_panel
+            // 
+            this.summary_panel.Controls.Add(this.net_label2);
+            this.summary_panel.Location = new System.Drawing.Point(0, 0);
+            this.summary_panel.Name = "summary_panel";
+            this.summary_panel.Size = new System.Drawing.Size(692, 543);
+            this.summary_panel.TabIndex = 32;
+            // 
+            // net_label2
+            // 
+            this.net_label2.AutoSize = true;
+            this.net_label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.net_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.net_label2.Location = new System.Drawing.Point(22, 13);
+            this.net_label2.Name = "net_label2";
+            this.net_label2.Size = new System.Drawing.Size(51, 24);
+            this.net_label2.TabIndex = 0;
+            this.net_label2.Text = "NET";
+            // 
             // titlePane
             // 
             this.titlePane.BackColor = System.Drawing.Color.Transparent;
@@ -789,24 +813,6 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // removeFromWatchlist
-            // 
-            this.removeFromWatchlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.removeFromWatchlist.FlatAppearance.BorderSize = 0;
-            this.removeFromWatchlist.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray;
-            this.removeFromWatchlist.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.removeFromWatchlist.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.removeFromWatchlist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.removeFromWatchlist.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeFromWatchlist.ForeColor = System.Drawing.Color.Gainsboro;
-            this.removeFromWatchlist.Location = new System.Drawing.Point(3, 332);
-            this.removeFromWatchlist.Margin = new System.Windows.Forms.Padding(2);
-            this.removeFromWatchlist.Name = "removeFromWatchlist";
-            this.removeFromWatchlist.Size = new System.Drawing.Size(147, 62);
-            this.removeFromWatchlist.TabIndex = 25;
-            this.removeFromWatchlist.Text = "REMOVE FROM WATCHLIST";
-            this.removeFromWatchlist.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -827,13 +833,13 @@
             this.summaryPane.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.infoPane.ResumeLayout(false);
-            this.summary_panel.ResumeLayout(false);
-            this.summary_panel.PerformLayout();
             this.stocksPanel.ResumeLayout(false);
             this.stocksPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
+            this.summary_panel.ResumeLayout(false);
+            this.summary_panel.PerformLayout();
             this.titlePane.ResumeLayout(false);
             this.ResumeLayout(false);
 
