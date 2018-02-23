@@ -19,6 +19,9 @@ namespace StockBuddy
         public Form1()
         {
             InitializeComponent();
+            HashSet<String> symbols = StockSymbols.getAllSymbols();
+            foreach (String symbol in symbols)
+                searchResultList.Items.Add(symbol);
             stocksPanel.Hide();
             //purchasePanel.Hide();
             //watchlistPanel.Hide();
@@ -80,7 +83,7 @@ namespace StockBuddy
             sellQTYLabel.Show();
             sellQTYTextbox.Show();
             addToWatchlist.Show(); 
-            searchResultList.Height = 350; 
+            searchResultList.Height = 350;
         }
 
         private void purchasedBtn_Click(object sender, EventArgs e)

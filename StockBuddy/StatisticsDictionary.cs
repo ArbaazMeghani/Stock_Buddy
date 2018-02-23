@@ -32,9 +32,9 @@ class StatisticsDictionary
             statistics.Add(headersOnly[i], dataOnly[i]);
     }
 
-    public Dictionary<String, String>.KeyCollection allKeywords()
+    public List<String> allKeywords()
     {
-        return statistics.Keys;
+        return statistics.Keys.ToList();
     }
 
     public String getStat(String keyword)
