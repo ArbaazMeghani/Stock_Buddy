@@ -16,6 +16,7 @@ namespace StockBuddy
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            StockSymbols.getAllSymbols();
             Application.Run(new Form1());
         }
     }
