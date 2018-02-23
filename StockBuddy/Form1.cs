@@ -158,5 +158,11 @@ namespace StockBuddy
         {
             handleGraphTabs_Click((Button)sender);
         }
+
+        private void reset_btn_Click(object sender, EventArgs e)
+        {
+            userInput();
+
+        }
     }
 }

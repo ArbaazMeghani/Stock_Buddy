@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -85,6 +85,7 @@
             this.titlePane = new System.Windows.Forms.Panel();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.reset_btn = new System.Windows.Forms.Button();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -231,8 +232,8 @@
             // 
             this.infoPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoPane.BackColor = System.Drawing.Color.Transparent;
-            this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Controls.Add(this.summary_panel);
+            this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Location = new System.Drawing.Point(260, 36);
             this.infoPane.Margin = new System.Windows.Forms.Padding(2);
             this.infoPane.Name = "infoPane";
@@ -392,16 +393,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea7.BackColor = System.Drawing.Color.Gray;
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
+            chartArea2.BackColor = System.Drawing.Color.Gray;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(206, 27);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series7.Name = "Series1";
-            this.chart1.Series.Add(series7);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -749,6 +750,7 @@
             // 
             // summary_panel
             // 
+            this.summary_panel.Controls.Add(this.reset_btn);
             this.summary_panel.Controls.Add(this.net_label2);
             this.summary_panel.Location = new System.Drawing.Point(0, 0);
             this.summary_panel.Name = "summary_panel";
@@ -760,7 +762,7 @@
             this.net_label2.AutoSize = true;
             this.net_label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.net_label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.net_label2.Location = new System.Drawing.Point(22, 13);
+            this.net_label2.Location = new System.Drawing.Point(5, 40);
             this.net_label2.Name = "net_label2";
             this.net_label2.Size = new System.Drawing.Size(51, 24);
             this.net_label2.TabIndex = 0;
@@ -812,6 +814,20 @@
             this.exitButton.Text = "X";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // reset_btn
+            // 
+            this.reset_btn.BackColor = System.Drawing.Color.Red;
+            this.reset_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reset_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset_btn.ForeColor = System.Drawing.Color.Snow;
+            this.reset_btn.Location = new System.Drawing.Point(617, 0);
+            this.reset_btn.Name = "reset_btn";
+            this.reset_btn.Size = new System.Drawing.Size(75, 28);
+            this.reset_btn.TabIndex = 1;
+            this.reset_btn.Text = "Reset";
+            this.reset_btn.UseVisualStyleBackColor = false;
+            this.reset_btn.Click += new System.EventHandler(this.reset_btn_Click);
             // 
             // Form1
             // 
@@ -901,6 +917,7 @@
         private System.Windows.Forms.Label net_label2;
         private System.Windows.Forms.Label net_label;
         private System.Windows.Forms.Button removeFromWatchlist;
+        private System.Windows.Forms.Button reset_btn;
     }
 }
 
