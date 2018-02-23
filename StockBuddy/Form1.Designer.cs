@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
             this.profilePicture = new System.Windows.Forms.PictureBox();
-            this.current_time = new System.Windows.Forms.Label();
             this.amountLabel = new System.Windows.Forms.Label();
             this.watchBtn = new System.Windows.Forms.Button();
             this.purchasedBtn = new System.Windows.Forms.Button();
@@ -86,6 +86,9 @@
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.reset_btn = new System.Windows.Forms.Button();
+            this.current_date = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.current_time = new System.Windows.Forms.Label();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -113,14 +116,15 @@
             // summaryPane
             // 
             this.summaryPane.BackColor = System.Drawing.Color.Transparent;
+            this.summaryPane.Controls.Add(this.current_date);
             this.summaryPane.Controls.Add(this.net_label);
             this.summaryPane.Controls.Add(this.profilePicture);
             this.summaryPane.Controls.Add(this.current_time);
             this.summaryPane.Controls.Add(this.amountLabel);
-            this.summaryPane.Location = new System.Drawing.Point(0, 0);
+            this.summaryPane.Location = new System.Drawing.Point(0, -12);
             this.summaryPane.Margin = new System.Windows.Forms.Padding(2);
             this.summaryPane.Name = "summaryPane";
-            this.summaryPane.Size = new System.Drawing.Size(255, 257);
+            this.summaryPane.Size = new System.Drawing.Size(255, 269);
             this.summaryPane.TabIndex = 0;
             // 
             // net_label
@@ -145,19 +149,6 @@
             this.profilePicture.TabIndex = 4;
             this.profilePicture.TabStop = false;
             this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
-            // 
-            // current_time
-            // 
-            this.current_time.AutoSize = true;
-            this.current_time.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.current_time.ForeColor = System.Drawing.Color.Gainsboro;
-            this.current_time.Location = new System.Drawing.Point(181, 13);
-            this.current_time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.current_time.MaximumSize = new System.Drawing.Size(71, 28);
-            this.current_time.Name = "current_time";
-            this.current_time.Size = new System.Drawing.Size(71, 28);
-            this.current_time.TabIndex = 3;
-            this.current_time.Text = "12:43";
             // 
             // amountLabel
             // 
@@ -232,8 +223,8 @@
             // 
             this.infoPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoPane.BackColor = System.Drawing.Color.Transparent;
-            this.infoPane.Controls.Add(this.summary_panel);
             this.infoPane.Controls.Add(this.stocksPanel);
+            this.infoPane.Controls.Add(this.summary_panel);
             this.infoPane.Location = new System.Drawing.Point(260, 36);
             this.infoPane.Margin = new System.Windows.Forms.Padding(2);
             this.infoPane.Name = "infoPane";
@@ -393,16 +384,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea2.BackColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea11.BackColor = System.Drawing.Color.Gray;
+            chartArea11.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea11);
             this.chart1.Location = new System.Drawing.Point(206, 27);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Name = "Series1";
+            this.chart1.Series.Add(series11);
             this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -829,6 +820,38 @@
             this.reset_btn.UseVisualStyleBackColor = false;
             this.reset_btn.Click += new System.EventHandler(this.reset_btn_Click);
             // 
+            // current_date
+            // 
+            this.current_date.AutoSize = true;
+            this.current_date.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_date.ForeColor = System.Drawing.Color.Gainsboro;
+            this.current_date.Location = new System.Drawing.Point(137, 12);
+            this.current_date.Name = "current_date";
+            this.current_date.Size = new System.Drawing.Size(108, 23);
+            this.current_date.TabIndex = 6;
+            this.current_date.Text = "88/88/8888";
+            this.current_date.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // current_time
+            // 
+            this.current_time.AutoSize = true;
+            this.current_time.Font = new System.Drawing.Font("Century", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.current_time.ForeColor = System.Drawing.Color.Gainsboro;
+            this.current_time.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.current_time.Location = new System.Drawing.Point(150, 104);
+            this.current_time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.current_time.Name = "current_time";
+            this.current_time.Size = new System.Drawing.Size(104, 28);
+            this.current_time.TabIndex = 3;
+            this.current_time.Text = "12:43:99";
+            this.current_time.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -872,7 +895,6 @@
         private System.Windows.Forms.Panel titlePane;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Label current_time;
         private System.Windows.Forms.Label amountLabel;
         private System.Windows.Forms.PictureBox profilePicture;
         private System.Windows.Forms.Panel stocksPanel;
@@ -918,6 +940,9 @@
         private System.Windows.Forms.Label net_label;
         private System.Windows.Forms.Button removeFromWatchlist;
         private System.Windows.Forms.Button reset_btn;
+        private System.Windows.Forms.Label current_date;
+        private System.Windows.Forms.Label current_time;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

@@ -30,6 +30,8 @@ namespace StockBuddy
                 Settings.Default["FirstTime"] = false;
                 Settings.Default.Save();
             }
+            current_time.Text = DateTime.Now.ToString("h:mm:ss");
+            current_date.Text = DateTime.Now.ToString("MMMM dd\nyyyy");
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -163,6 +165,12 @@ namespace StockBuddy
         {
             userInput();
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.current_time.Text = DateTime.Now.ToString("hh:mm:ss");
+            this.current_date.Text = DateTime.Now.ToString("MMMM dd\nyyyy");
         }
     }
 }
