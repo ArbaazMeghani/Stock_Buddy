@@ -27,6 +27,7 @@ namespace StockBuddy
             {
                 userInput();
                 Settings.Default["FirstTime"] = false;
+                Settings.Default.Save();
             }
         }
 
