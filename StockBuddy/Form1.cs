@@ -22,7 +22,7 @@ namespace StockBuddy
             //purchasePanel.Hide();
             //watchlistPanel.Hide();
             amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
-            Settings.Default["FirstTime"] = true;
+            //Settings.Default["FirstTime"] = true;
             if (Convert.ToBoolean(Settings.Default["FirstTime"]))
             {
                 userInput();
