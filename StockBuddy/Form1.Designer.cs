@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -54,7 +54,6 @@
             this.OPEN = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -244,7 +243,6 @@
             this.stocksPanel.Controls.Add(this.OPEN);
             this.stocksPanel.Controls.Add(this.chart1);
             this.stocksPanel.Controls.Add(this.label12);
-            this.stocksPanel.Controls.Add(this.label11);
             this.stocksPanel.Controls.Add(this.label10);
             this.stocksPanel.Controls.Add(this.label9);
             this.stocksPanel.Controls.Add(this.label8);
@@ -382,16 +380,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea13.BackColor = System.Drawing.Color.Gray;
-            chartArea13.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea13);
+            chartArea14.BackColor = System.Drawing.Color.Gray;
+            chartArea14.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea14);
             this.chart1.Location = new System.Drawing.Point(206, 27);
             this.chart1.Margin = new System.Windows.Forms.Padding(2);
             this.chart1.Name = "chart1";
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.Name = "Series1";
-            this.chart1.Series.Add(series13);
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Name = "Series1";
+            this.chart1.Series.Add(series14);
             this.chart1.Size = new System.Drawing.Size(447, 244);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -407,18 +405,6 @@
             this.label12.Size = new System.Drawing.Size(251, 24);
             this.label12.TabIndex = 19;
             this.label12.Text = "CURRENT PRICE:    9999.99";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Beige;
-            this.label11.Location = new System.Drawing.Point(209, 278);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 16);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "2/14/2018 10:32 PM";
             // 
             // label10
             // 
@@ -921,7 +907,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button addToWatchlist;
         private System.Windows.Forms.TextBox sellQTYTextbox;
         private System.Windows.Forms.Label sellQTYLabel;
