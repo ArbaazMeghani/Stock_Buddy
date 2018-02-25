@@ -16,6 +16,8 @@ namespace StockBuddy
         Button currentClicked = null;
         Button graphTabClicked = null;
         public string input;
+        Boolean mouseDown;
+        Point currentMouseLocation;
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +37,26 @@ namespace StockBuddy
             }
             current_time.Text = DateTime.Now.ToString("h:mm:ss");
             current_date.Text = DateTime.Now.ToString("MMMM dd\nyyyy");
+        }
+
+        private void titlePane_mouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            currentMouseLocation = e.Location;
+        }
+
+        private void titlePane_mouseMove(object sender, MouseEventArgs e)
+        {
+            if(mouseDown)
+            {
+                this.Location = new Point(e.X - currentMouseLocation.X  + this.Location.X, e.Y - currentMouseLocation.Y + this.Location.Y);
+                this.Update();
+            }
+        }
+
+        private void titlePane_mouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
 
         private void exitButton_Click(object sender, EventArgs e)

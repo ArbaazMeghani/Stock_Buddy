@@ -755,6 +755,9 @@
             this.titlePane.Name = "titlePane";
             this.titlePane.Size = new System.Drawing.Size(703, 33);
             this.titlePane.TabIndex = 2;
+            this.titlePane.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePane_mouseDown);
+            this.titlePane.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titlePane_mouseUp);
+            this.titlePane.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePane_mouseMove);
             // 
             // minimizeBtn
             // 
