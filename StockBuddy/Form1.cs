@@ -193,6 +193,7 @@ namespace StockBuddy
 
         private void Day_Click(object sender, EventArgs e)
         {
+            handleGraphTabs_Click((Button)sender);
             String name = this.searchResultList.Text.Trim();
             List<Tuple<String, String,String>> dayTuple = new List<Tuple<String, String,String>>();
             ParsedData parseObject = new ParsedData();
@@ -209,7 +210,7 @@ namespace StockBuddy
 
         private void Month1_Click(object sender, EventArgs e)
         {
-            
+            handleGraphTabs_Click((Button)sender);
             String name = this.searchResultList.Text.Trim();  
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
@@ -226,6 +227,7 @@ namespace StockBuddy
 
         private void Month3_Click(object sender, EventArgs e)
         {
+            handleGraphTabs_Click((Button)sender);
             String name = this.searchResultList.Text.Trim();
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
@@ -242,6 +244,7 @@ namespace StockBuddy
 
         private void Month6_Click(object sender, EventArgs e)
         {
+            handleGraphTabs_Click((Button)sender);
             String name = this.searchResultList.Text.Trim();
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
@@ -258,6 +261,7 @@ namespace StockBuddy
 
         private void Year1_Click(object sender, EventArgs e)
         {
+            handleGraphTabs_Click((Button)sender);
             String name = this.searchResultList.Text.Trim();
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
@@ -274,6 +278,7 @@ namespace StockBuddy
 
         private void Year5_Click(object sender, EventArgs e)
         {
+            handleGraphTabs_Click((Button)sender);
             String name = this.searchResultList.Text.Trim();
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
@@ -303,6 +308,14 @@ namespace StockBuddy
         private void current_time_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void searchResultList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (graphTabClicked != null)
+                graphTabClicked.PerformClick();
+            else
+                Year5.PerformClick();
         }
     }
 }
