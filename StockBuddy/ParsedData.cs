@@ -37,9 +37,14 @@ public class ParsedData
         {
             for (int i = 3; i < parsedData.Length; i = i + 3)
             {
-
-                dataDayList.Add(new Tuple<string, string, string>(parsedData[i], parsedData[i + 1], parsedData[i + 2]));
-
+                try
+                {
+                    dataDayList.Add(new Tuple<string, string, string>(parsedData[i], parsedData[i + 1], parsedData[i + 2]));
+                }
+                catch
+                {
+                    // Do nothing. 
+                }
             }
         }
 
