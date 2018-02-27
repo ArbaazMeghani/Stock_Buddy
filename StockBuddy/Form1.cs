@@ -6,8 +6,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace StockBuddy
 {
@@ -153,37 +155,137 @@ namespace StockBuddy
         private void profilePicture_Click(object sender, EventArgs e)
         {
             stocksPanel.Hide();
+
             summary_panel.Show();
+        }
+
+        private void addToGraph(List<Tuple<String, String>> dataTuple, List<Tuple<String, String, String>> dayTuple)
+        {
+            chart1.Series.Clear();
+            chart1.Series.Add("1");
+            chart1.Series["1"].ChartType = SeriesChartType.Line;
+
+            int count = 1;
+
+            if (dataTuple != null)
+            {
+                
+                foreach (var i in dataTuple)
+                {
+                    chart1.Series["1"].Points.AddXY(count, i.Item2);
+                    count++;
+                }
+            }
+
+            else
+            {
+                foreach (var i in dayTuple)
+                {
+                    if (i.Item3 != "0")
+                    {
+                        chart1.Series["1"].Points.AddXY(count, i.Item3);
+                        count++;
+                    }
+                }
+            }
+
         }
 
         private void Day_Click(object sender, EventArgs e)
         {
-            handleGraphTabs_Click((Button)sender);
-        }
+            String name = this.searchResultList.Text.Trim();
+            List<Tuple<String, String,String>> dayTuple = new List<Tuple<String, String,String>>();
+            ParsedData parseObject = new ParsedData();
+            var thread = new Thread(
+              () =>
+              {
+                  dayTuple = parseObject.getOneDayOfData(name);
+              });
+            thread.Start();
+            thread.Join();
+
+            addToGraph(null, dayTuple);
+        } 
 
         private void Month1_Click(object sender, EventArgs e)
         {
-            handleGraphTabs_Click((Button)sender);
+            
+            String name = this.searchResultList.Text.Trim();  
+            List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
+            ParsedData parseObject = new ParsedData();
+            var thread = new Thread(
+              () =>
+              {
+                  dataTuple = parseObject.getOneMonthOfData(name);
+              });
+            thread.Start();
+            thread.Join();
+
+            addToGraph(dataTuple, null);
         }
 
         private void Month3_Click(object sender, EventArgs e)
         {
-            handleGraphTabs_Click((Button)sender);
+            String name = this.searchResultList.Text.Trim();
+            List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
+            ParsedData parseObject = new ParsedData();
+            var thread = new Thread(
+              () =>
+              {
+                  dataTuple = parseObject.getQuarterOfData(name);
+              });
+            thread.Start();
+            thread.Join();
+
+            addToGraph(dataTuple, null);
         }
 
         private void Month6_Click(object sender, EventArgs e)
         {
-            handleGraphTabs_Click((Button)sender);
+            String name = this.searchResultList.Text.Trim();
+            List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
+            ParsedData parseObject = new ParsedData();
+            var thread = new Thread(
+              () =>
+              {
+                  dataTuple = parseObject.getHalfYearOfData(name);
+              });
+            thread.Start();
+            thread.Join();
+
+            addToGraph(dataTuple, null);
         }
 
         private void Year1_Click(object sender, EventArgs e)
         {
-            handleGraphTabs_Click((Button)sender);
+            String name = this.searchResultList.Text.Trim();
+            List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
+            ParsedData parseObject = new ParsedData();
+            var thread = new Thread(
+              () =>
+              {
+                  dataTuple = parseObject.getOneYearOfData(name);
+              });
+            thread.Start();
+            thread.Join();
+
+            addToGraph(dataTuple, null);
         }
 
         private void Year5_Click(object sender, EventArgs e)
         {
-            handleGraphTabs_Click((Button)sender);
+            String name = this.searchResultList.Text.Trim();
+            List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
+            ParsedData parseObject = new ParsedData();
+            var thread = new Thread(
+              () =>
+              {
+                  dataTuple = parseObject.getFiveYearsOfData(name);
+              });
+            thread.Start();
+            thread.Join();
+
+            addToGraph(dataTuple,null);
         }
 
         private void reset_btn_Click(object sender, EventArgs e)
