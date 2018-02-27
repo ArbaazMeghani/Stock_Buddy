@@ -163,6 +163,40 @@ namespace StockBuddy
             summary_panel.Show();
         }
 
+        private void addStatistics(String name)
+        {
+
+            
+           var thread = new Thread(
+              () =>
+              {
+              
+                  StatisticsDictionary s = new StatisticsDictionary(name);
+                  latestPrice.Text = s.getStat("latestPrice");
+                  OPEN.Text = s.getStat("open");
+                  HIGH.Text = s.getStat("high");
+                  LOW.Text = s.getStat("low");
+                  yearHigh.Text = s.getStat("week52High");
+                  yearLow.Text = s.getStat("week52Low");
+                  VOLUME.Text = s.getStat("latestVolume");
+                  avgVolume.Text = s.getStat("avgTotalVolume");
+                  marketCap.Text = s.getStat("marketcap");
+                  peRatio.Text = s.getStat("peRatio");
+                  divYield.Text = s.getStat("dividendYield");
+            
+              });
+            thread.Start();
+            thread.Join();
+            
+
+
+
+
+
+        }
+
+
+
         private void addToGraph(List<Tuple<String, String>> dataTuple, List<Tuple<String, String, String>> dayTuple)
         {
             chart1.Series.Clear();
@@ -295,6 +329,7 @@ namespace StockBuddy
             thread.Join();
 
             addToGraph(dataTuple,null);
+            addStatistics(name);
         }
 
         private void reset_btn_Click(object sender, EventArgs e)
@@ -319,7 +354,9 @@ namespace StockBuddy
             if (graphTabClicked != null)
                 graphTabClicked.PerformClick();
             else
+            {
                 Year5.PerformClick();
+            }
         }
     }
 }

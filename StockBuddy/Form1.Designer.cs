@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.HIGH = new System.Windows.Forms.Label();
             this.OPEN = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label12 = new System.Windows.Forms.Label();
+            this.latestPrice = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -242,7 +242,7 @@
             this.stocksPanel.Controls.Add(this.HIGH);
             this.stocksPanel.Controls.Add(this.OPEN);
             this.stocksPanel.Controls.Add(this.chart1);
-            this.stocksPanel.Controls.Add(this.label12);
+            this.stocksPanel.Controls.Add(this.latestPrice);
             this.stocksPanel.Controls.Add(this.label10);
             this.stocksPanel.Controls.Add(this.label9);
             this.stocksPanel.Controls.Add(this.label8);
@@ -390,30 +390,30 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea2.BackColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.BackColor = System.Drawing.Color.Gray;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(275, 33);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // label12
+            // latestPrice
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Lime;
-            this.label12.Location = new System.Drawing.Point(552, 342);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(323, 29);
-            this.label12.TabIndex = 19;
-            this.label12.Text = "CURRENT PRICE:    9999.99";
+            this.latestPrice.AutoSize = true;
+            this.latestPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.latestPrice.ForeColor = System.Drawing.Color.Lime;
+            this.latestPrice.Location = new System.Drawing.Point(552, 342);
+            this.latestPrice.Name = "latestPrice";
+            this.latestPrice.Size = new System.Drawing.Size(323, 29);
+            this.latestPrice.TabIndex = 19;
+            this.latestPrice.Text = "CURRENT PRICE:    9999.99";
             // 
             // label10
             // 
@@ -726,7 +726,7 @@
             this.summary_panel.Controls.Add(this.reset_btn);
             this.summary_panel.Controls.Add(this.net_label2);
             this.summary_panel.Location = new System.Drawing.Point(0, 0);
-            this.summary_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.summary_panel.Margin = new System.Windows.Forms.Padding(4);
             this.summary_panel.Name = "summary_panel";
             this.summary_panel.Size = new System.Drawing.Size(923, 668);
             this.summary_panel.TabIndex = 32;
@@ -738,7 +738,7 @@
             this.reset_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reset_btn.ForeColor = System.Drawing.Color.Snow;
             this.reset_btn.Location = new System.Drawing.Point(823, 0);
-            this.reset_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reset_btn.Margin = new System.Windows.Forms.Padding(4);
             this.reset_btn.Name = "reset_btn";
             this.reset_btn.Size = new System.Drawing.Size(100, 34);
             this.reset_btn.TabIndex = 1;
@@ -910,7 +910,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label latestPrice;
         private System.Windows.Forms.Button addToWatchlist;
         private System.Windows.Forms.TextBox sellQTYTextbox;
         private System.Windows.Forms.Label sellQTYLabel;
