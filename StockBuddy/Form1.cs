@@ -154,8 +154,12 @@ namespace StockBuddy
 
         private void profilePicture_Click(object sender, EventArgs e)
         {
+            if(currentClicked != null)
+            {
+                currentClicked.BackColor = Color.Transparent;
+                currentClicked = null;
+            }
             stocksPanel.Hide();
-
             summary_panel.Show();
         }
 
