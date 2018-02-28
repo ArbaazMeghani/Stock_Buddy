@@ -29,7 +29,7 @@ class StatisticsDictionary
         String[] dataOnly = splitData[1].Split(',');
         String[] headersOnly = splitData[0].Split(',');
         for (int i = 0; i < dataOnly.Length; i++)
-            statistics.Add(headersOnly[i], dataOnly[i]);
+            statistics.Add(headersOnly[i].Trim(), dataOnly[i]);
     }
 
     public List<String> allKeywords()
@@ -41,7 +41,7 @@ class StatisticsDictionary
     {
         try
         {
-            return statistics[keyword];
+            return statistics[keyword].Equals("") ? "-" : statistics[keyword];
         }
         catch(Exception e)
         {
