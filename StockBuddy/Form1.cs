@@ -166,27 +166,33 @@ namespace StockBuddy
         private void addStatistics(String name)
         {
 
+
+         String price, open, high, low, yearHigh, yearLow, volume, avgVolume, marketcap, peRatio, divYield;
+
             
-           var thread = new Thread(
+         var thread = new Thread(
               () =>
               {
               
                   StatisticsDictionary s = new StatisticsDictionary(name);
-                  latestPrice.Text = s.getStat("latestPrice");
-                  OPEN.Text = s.getStat("open");
-                  HIGH.Text = s.getStat("high");
-                  LOW.Text = s.getStat("low");
-                  yearHigh.Text = s.getStat("week52High");
-                  yearLow.Text = s.getStat("week52Low");
-                  VOLUME.Text = s.getStat("latestVolume");
-                  avgVolume.Text = s.getStat("avgTotalVolume");
-                  marketCap.Text = s.getStat("marketcap");
-                  peRatio.Text = s.getStat("peRatio");
-                  divYield.Text = s.getStat("dividendYield");
+                  price = s.getStat("latestPrice");
+                  open = s.getStat("open");
+                  high = s.getStat("high");
+                  low = s.getStat("low");
+                  yearHigh = s.getStat("week52High");
+                  yearLow = s.getStat("week52Low");
+                  volume = s.getStat("latestVolume");
+                  avgVolume = s.getStat("avgTotalVolume");
+                  marketcap = s.getStat("marketcap");
+                  peRatio = s.getStat("peRatio");
+                  divYield = s.getStat("dividendYield");
             
               });
             thread.Start();
             thread.Join();
+
+
+            OPEN.Text = open;
             
 
 
@@ -329,7 +335,7 @@ namespace StockBuddy
             thread.Join();
 
             addToGraph(dataTuple,null);
-            addStatistics(name);
+           // addStatistics(name);
         }
 
         private void reset_btn_Click(object sender, EventArgs e)
@@ -351,11 +357,14 @@ namespace StockBuddy
 
         private void searchResultList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String name = this.searchResultList.Text.Trim();
+
             if (graphTabClicked != null)
                 graphTabClicked.PerformClick();
             else
             {
                 Year5.PerformClick();
+                addStatistics(name);
             }
         }
     }
