@@ -45,7 +45,7 @@ class StatisticsDictionary
         }
         catch(Exception e)
         {
-            return "Illegal keyword";
+            return "N/A";
         }
     }
 }
