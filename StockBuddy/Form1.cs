@@ -221,6 +221,7 @@ namespace StockBuddy
             chart1.Series.Clear();
             chart1.Series.Add("1");
             chart1.Series["1"].ChartType = SeriesChartType.Line;
+            chart1.Series["1"].Color = System.Drawing.Color.Red;
 
             int count = 1;
 
@@ -380,6 +381,11 @@ namespace StockBuddy
         
             }
             addStatistics(name);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
