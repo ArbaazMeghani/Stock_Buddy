@@ -167,7 +167,7 @@ namespace StockBuddy
         {
 
 
-         String price, open, high, low, yearHigh, yearLow, volume, avgVolume, marketcap, peRatio, divYield;
+         String price ="",  open = "", high = "", low ="", yearH ="", yearL ="", volume = "", avgVol ="", marketcap ="", PERatio = "", dividendYield ="";
 
             
          var thread = new Thread(
@@ -179,13 +179,13 @@ namespace StockBuddy
                   open = s.getStat("open");
                   high = s.getStat("high");
                   low = s.getStat("low");
-                  yearHigh = s.getStat("week52High");
-                  yearLow = s.getStat("week52Low");
+                  yearH = s.getStat("week52High");
+                  yearL = s.getStat("week52Low");
                   volume = s.getStat("latestVolume");
-                  avgVolume = s.getStat("avgTotalVolume");
+                  avgVol = s.getStat("avgTotalVolume");
                   marketcap = s.getStat("marketcap");
-                  peRatio = s.getStat("peRatio");
-                  divYield = s.getStat("dividendYield");
+                  PERatio = s.getStat("peRatio");
+                  dividendYield = s.getStat("dividendYield");
             
               });
             thread.Start();
@@ -193,6 +193,19 @@ namespace StockBuddy
 
 
             OPEN.Text = open;
+            latestPrice.Text = price;
+            HIGH.Text = high;
+            LOW.Text = low;
+            yearHigh.Text = yearH;
+            yearLow.Text = yearL;
+            VOLUME.Text = volume;
+            avgVolume.Text = avgVol;
+            marketCap.Text = marketcap;
+            peRatio.Text = PERatio;
+            divYield.Text = dividendYield;
+            
+
+
             
 
 
@@ -364,8 +377,9 @@ namespace StockBuddy
             else
             {
                 Year5.PerformClick();
-                addStatistics(name);
+        
             }
+            addStatistics(name);
         }
     }
 }
