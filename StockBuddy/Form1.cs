@@ -137,13 +137,21 @@ namespace StockBuddy
 
         private void userInput()
         {
+            double savedMoney = (double) Settings.Default["Money"];
             input = Microsoft.VisualBasic.Interaction.InputBox("How many dollars would you like to start off with?", "Initial amount", "0", -1, -1);
             //saving
-            double savedMoney = Convert.ToDouble(input);
+            if ((input == "") || (input.All(char.IsDigit) == false))
+            {
+                savedMoney = (double)Settings.Default["Money"];
+            }
+            else
+            {
+                savedMoney = Convert.ToDouble(input);
+            }
+
             Settings.Default["Money"] = savedMoney;
             Settings.Default["FirstTime"] = false;
             Settings.Default.Save();
-
             amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
         }
 
@@ -166,50 +174,79 @@ namespace StockBuddy
         private void addStatistics(String name)
         {
 
+            String priceString ="",  openString = "", highString = "", lowString ="", yearHighString ="", yearLowString ="", volumeString = "",
+                    avgVolString ="", marketcapString ="", PERatioString = "", dividendYieldString ="";
 
-         String price ="",  open = "", high = "", low ="", yearH ="", yearL ="", volume = "", avgVol ="", marketcap ="", PERatio = "", dividendYield ="";
 
-            
-         var thread = new Thread(
-              () =>
-              {
+            var thread = new Thread(
+            () =>
+            {
               
-                  StatisticsDictionary s = new StatisticsDictionary(name);
-                  price = s.getStat("latestPrice");
-                  open = s.getStat("open");
-                  high = s.getStat("high");
-                  low = s.getStat("low");
-                  yearH = s.getStat("week52High");
-                  yearL = s.getStat("week52Low");
-                  volume = s.getStat("latestVolume");
-                  avgVol = s.getStat("avgTotalVolume");
-                  marketcap = s.getStat("marketcap");
-                  PERatio = s.getStat("peRatio");
-                  dividendYield = s.getStat("dividendYield");
+                StatisticsDictionary s = new StatisticsDictionary(name);
+                priceString = s.getStat("latestPrice");
+                openString = s.getStat("open");
+                highString = s.getStat("high");
+                lowString = s.getStat("low");
+                yearHighString = s.getStat("week52High");
+                yearLowString = s.getStat("week52Low");
+                volumeString = s.getStat("latestVolume");
+                avgVolString = s.getStat("avgTotalVolume");
+                marketcapString = s.getStat("marketcap");
+                PERatioString = s.getStat("peRatio");
+                dividendYieldString = s.getStat("dividendYield");
             
-              });
+            });
             thread.Start();
             thread.Join();
 
-
-            OPEN.Text = open;
-            latestPrice.Text = price;
-            HIGH.Text = high;
-            LOW.Text = low;
-            yearHigh.Text = yearH;
-            yearLow.Text = yearL;
-            VOLUME.Text = volume;
-            avgVolume.Text = avgVol;
-            marketCap.Text = marketcap;
-            peRatio.Text = PERatio;
-            divYield.Text = dividendYield;
-            
+            double divYieldDouble = Convert.ToDouble(dividendYieldString);
+            double marketCapDouble = Convert.ToDouble(marketcapString);
+            double volumeDouble = Convert.ToDouble(volumeString);
+            double avgVolDouble = Convert.ToDouble(avgVolString);
 
 
-            
+            divYieldDouble  = Math.Round(divYieldDouble, 3);
+            dividendYieldString = Convert.ToString(divYieldDouble);
+
+            if((marketCapDouble > 1000000) && marketCapDouble < 1000000000)
+            {
+                marketCapDouble /= 1000000;
+                marketCapDouble = Math.Round(marketCapDouble, 0);
+                marketcapString = Convert.ToString(marketCapDouble) + "M";
+            }
+            else if(marketCapDouble > 1000000000)
+            {
+                marketCapDouble /= 1000000000;
+                marketCapDouble = Math.Round(marketCapDouble, 0);
+                marketcapString = Convert.ToString(marketCapDouble) + "B";
+            }
+
+            if(volumeDouble > 1000000)
+            {
+                volumeDouble /= 1000000;
+                volumeDouble = Math.Round(volumeDouble, 0);
+                volumeString = Convert.ToString(volumeDouble) + "M";
+            }
+
+            if (avgVolDouble > 1000000)
+            {
+                avgVolDouble /= 1000000;
+                avgVolDouble = Math.Round(avgVolDouble, 0);
+                avgVolString = Convert.ToString(avgVolDouble) + "M";
+            }
 
 
-
+            OPEN.Text = openString;
+            latestPrice.Text = priceString;
+            HIGH.Text = highString;
+            LOW.Text = lowString;
+            yearHigh.Text = yearHighString;
+            yearLow.Text = yearLowString;
+            VOLUME.Text = volumeString;
+            avgVolume.Text = avgVolString;
+            marketCap.Text = marketcapString;
+            peRatio.Text = PERatioString;
+            divYield.Text = dividendYieldString;
 
 
         }
