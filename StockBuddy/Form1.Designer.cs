@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -390,16 +390,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea1.BackColor = System.Drawing.Color.Gray;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.BackColor = System.Drawing.Color.Gray;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(309, 41);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(670, 375);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -639,6 +639,7 @@
             this.removeFromWatchlist.TabIndex = 25;
             this.removeFromWatchlist.Text = "REMOVE FROM WATCHLIST";
             this.removeFromWatchlist.UseVisualStyleBackColor = false;
+            this.removeFromWatchlist.Click += new System.EventHandler(this.removeFromWatchlist_Click);
             // 
             // addToWatchlist
             // 
@@ -657,6 +658,7 @@
             this.addToWatchlist.TabIndex = 24;
             this.addToWatchlist.Text = "ADD TO WATCHLIST";
             this.addToWatchlist.UseVisualStyleBackColor = false;
+            this.addToWatchlist.Click += new System.EventHandler(this.addToWatchlist_Click);
             // 
             // sellQTYTextbox
             // 

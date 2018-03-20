@@ -424,5 +424,25 @@ namespace StockBuddy
         {
 
         }
+
+        private void addToWatchlist_Click(object sender, EventArgs e)
+        {
+            String symbol = this.searchText.Text.Trim();
+
+            //Check to see if the symbol is already in the watch list. 
+            //If it is not, place the symbol in the watch list. 
+
+        }
+
+        private void removeFromWatchlist_Click(object sender, EventArgs e)
+        {
+            String symbol = this.searchText.Text.Trim(); 
+
+            //get the stored data
+            //Check waitlist to see if we have the data. 
+            //If we have data, remove the data. If not, do nothing. 
+
+        
+        }
     }
 }
