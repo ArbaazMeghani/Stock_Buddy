@@ -32,7 +32,17 @@ class Profile
 
     }
 
-    public Tuple<String, int, double> RetrievePurchases()
+    public void UpdatePurchase(String symbol, int quantity)
+    {
+
+    }
+
+    public void DeletePurchase(String symbol)
+    {
+
+    }
+
+    public List<Tuple<String, int, double>> RetrievePurchases()
     {
         return null;
     }
