@@ -12,6 +12,11 @@ class Profile
 
     }
 
+    public void ClearProfile()
+    {
+
+    }
+
     public void SaveWatchListItem(String symbol)
     {
 

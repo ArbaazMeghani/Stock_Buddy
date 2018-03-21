@@ -20,9 +20,12 @@ namespace StockBuddy
         public string input;
         Boolean mouseDown;
         Point currentMouseLocation;
+        Profile savedProfile;
+
         public Form1()
         {
             InitializeComponent();
+            savedProfile = new Profile();
             HashSet<String> symbols = StockSymbols.getAllSymbols();
             foreach (String symbol in symbols)
                 searchResultList.Items.Add(symbol);
@@ -137,6 +140,7 @@ namespace StockBuddy
 
         private void userInput()
         {
+            savedProfile.ClearProfile();
             double savedMoney = (double) Settings.Default["Money"];
             input = Microsoft.VisualBasic.Interaction.InputBox("How many dollars would you like to start off with?", "Initial amount", "0", -1, -1);
             //saving
@@ -392,7 +396,7 @@ namespace StockBuddy
         private void reset_btn_Click(object sender, EventArgs e)
         {
             userInput();
-
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
