@@ -431,11 +431,22 @@ namespace StockBuddy
 
         private void addToWatchlist_Click(object sender, EventArgs e)
         {
-            String symbol = this.searchText.Text.Trim();
+            String symbol = this.searchResultList.Text.Trim();
 
-            //Check to see if the symbol is already in the watch list. 
-            //If it is not, place the symbol in the watch list. 
+            //Console.WriteLine(symbol);
 
+            savedProfile.DeleteWatchListItem(symbol);
+            savedProfile.SaveWatchListItem(symbol);
+
+            var temp =  savedProfile.RetrieveWatchList();
+
+            foreach (var i in temp)
+            {
+                Console.WriteLine(i);
+            }
+
+
+         
         }
 
         private void removeFromWatchlist_Click(object sender, EventArgs e)

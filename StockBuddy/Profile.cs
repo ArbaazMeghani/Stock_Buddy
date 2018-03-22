@@ -35,6 +35,7 @@ class Profile
         databaseManager.UpdateTableItem(symbol, deleteWatchListItemQuery);
     }
 
+
     public List<String> RetrieveWatchList()
     {
         String query = "SELECT * FROM WatchList;";

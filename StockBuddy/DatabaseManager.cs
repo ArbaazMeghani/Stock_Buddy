@@ -9,7 +9,7 @@ using System.Globalization;
 
 class DatabaseManager
 {
-    private const String CONN_STRING = "Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=.\WatchList.mdf;Integrated Security = True";
+    private const String CONN_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\WatchList.mdf;Integrated Security=True";
 
     public DatabaseManager() { }
 
@@ -17,6 +17,7 @@ class DatabaseManager
     {
         SqlConnection sqlConnection = new SqlConnection(CONN_STRING);
         SqlCommand command = new SqlCommand(query, sqlConnection);
+        Console.WriteLine(CONN_STRING);
         sqlConnection.Open();
         return command;
     }
