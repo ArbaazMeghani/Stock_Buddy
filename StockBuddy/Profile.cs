@@ -76,12 +76,8 @@ class Profile
         DataTableReader dataTableReader = purchaseTable.CreateDataReader();
         while(dataTableReader.Read())
         {
-            for(int i = 1; i < dataTableReader.FieldCount; i++)
-            {
-                Tuple<String, int, double> item = new Tuple<string, int, double>(dataTableReader[0].ToString(), Convert.ToInt32(dataTableReader[1]), Convert.ToDouble(dataTableReader[2]));
-                purchaseList.Add(item);
-
-            }
+            Tuple<String, int, double> item = new Tuple<string, int, double>(dataTableReader[1].ToString(), Convert.ToInt32(dataTableReader[2]), Convert.ToDouble(dataTableReader[3]));
+            purchaseList.Add(item);
         }
         purchaseTable.Dispose();
         return purchaseList;
