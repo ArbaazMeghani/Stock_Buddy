@@ -101,6 +101,7 @@ namespace StockBuddy
 
         private void StocksBtn_Click(object sender, EventArgs e)
         {
+            searchResultList.Items.Clear();
             HashSet<String> symbols = StockSymbols.getAllSymbols();
             foreach (String symbol in symbols)
                 searchResultList.Items.Add(symbol);
@@ -116,6 +117,7 @@ namespace StockBuddy
 
         private void purchasedBtn_Click(object sender, EventArgs e)
         {
+            searchResultList.Items.Clear();
             handleNav_Click((Button)sender);
             stocksPanel.Show();
             summary_panel.Hide();
