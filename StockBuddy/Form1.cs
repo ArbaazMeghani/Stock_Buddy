@@ -26,9 +26,9 @@ namespace StockBuddy
         {
             InitializeComponent();
             savedProfile = new Profile();
-            HashSet<String> symbols = StockSymbols.getAllSymbols();
-            foreach (String symbol in symbols)
-                searchResultList.Items.Add(symbol);
+            //HashSet<String> symbols = StockSymbols.getAllSymbols();
+            //foreach (String symbol in symbols)
+                //searchResultList.Items.Add(symbol);
             stocksPanel.Hide();
             //purchasePanel.Hide();
             //watchlistPanel.Hide();
@@ -101,9 +101,10 @@ namespace StockBuddy
 
         private void StocksBtn_Click(object sender, EventArgs e)
         {
+            HashSet<String> symbols = StockSymbols.getAllSymbols();
+            foreach (String symbol in symbols)
+                searchResultList.Items.Add(symbol);
             handleNav_Click((Button)sender);
-            //purchasePanel.Hide();
-            //watchlistPanel.Hide();
             summary_panel.Hide();
             stocksPanel.Show();
             removeFromWatchlist.Hide();
@@ -127,6 +128,13 @@ namespace StockBuddy
 
         private void watchBtn_Click(object sender, EventArgs e)
         {
+            searchResultList.Items.Clear();
+            var watchList = savedProfile.RetrieveWatchList();
+
+            foreach (var symbol in watchList)
+            {
+                searchResultList.Items.Add(symbol);
+            }
             handleNav_Click((Button)sender);
             stocksPanel.Show();
             summary_panel.Hide();
@@ -444,19 +452,14 @@ namespace StockBuddy
             {
                 Console.WriteLine(i);
             }
-
-
-         
+            
         }
 
         private void removeFromWatchlist_Click(object sender, EventArgs e)
         {
-            String symbol = this.searchText.Text.Trim(); 
+            String symbol = this.searchResultList.Text.Trim();
 
-            //get the stored data
-            //Check waitlist to see if we have the data. 
-            //If we have data, remove the data. If not, do nothing. 
-
+            savedProfile.DeleteWatchListItem(symbol);
         
         }
     }
