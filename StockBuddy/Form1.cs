@@ -26,7 +26,7 @@ namespace StockBuddy
         {
             InitializeComponent();
             savedProfile = new Profile();
-            //HashSet<String> symbols = StockSymbols.getAllSymbols();
+            HashSet<String> symbols = StockSymbols.getAllSymbols();
             //foreach (String symbol in symbols)
                 //searchResultList.Items.Add(symbol);
             stocksPanel.Hide();
