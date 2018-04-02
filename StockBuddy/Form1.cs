@@ -118,11 +118,18 @@ namespace StockBuddy
         private void purchasedBtn_Click(object sender, EventArgs e)
         {
             searchResultList.Items.Clear();
+            var purchaseList = savedProfile.RetrievePurchases();
+
+            foreach (var symbol in purchaseList)
+            {
+                searchResultList.Items.Add(symbol);
+            }
             handleNav_Click((Button)sender);
             stocksPanel.Show();
             summary_panel.Hide();
             removeFromWatchlist.Hide();
             addToWatchlist.Hide();
+            sellButton.Show();
             sellQTYLabel.Show();
             sellQTYTextbox.Show();
             searchResultList.Height = 425; 
@@ -143,6 +150,8 @@ namespace StockBuddy
             removeFromWatchlist.Show();
             removeFromWatchlist.Location = new Point(3,403);
             sellQTYLabel.Hide();
+            sellButton.Hide();
+            
             sellQTYTextbox.Hide();
             searchResultList.Height = 350; 
 
@@ -463,6 +472,22 @@ namespace StockBuddy
 
             savedProfile.DeleteWatchListItem(symbol);
         
+        }
+
+        private void buyButton_Click(object sender, EventArgs e)
+        {
+            String symbol = this.searchResultList.Text.Trim();
+
+            savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
+            savedProfile.RetrievePurchases();
+        }
+
+        private void sellButtton(object sender, EventArgs e)
+        {
+            String symbol = this.searchResultList.Text.Trim();
+            savedProfile.UpdatePurchase(symbol,5 , 5);
+           
+
         }
     }
 }
