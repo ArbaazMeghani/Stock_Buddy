@@ -68,16 +68,15 @@ class Profile
         databaseManager.UpdateTableItem(symbol, deletePurchaseListItemQuery);
     }
 
-    public List<Tuple<String, int, double>> RetrievePurchases()
+    public List<String> RetrievePurchases()
     {
         String query = "SELECT * FROM PurchaseList;";
         DataTable purchaseTable = databaseManager.SelectQuery(query);
-        List<Tuple<String, int, double>> purchaseList = new List<Tuple<string, int, double>>();
+        List<String> purchaseList = new List<string>();
         DataTableReader dataTableReader = purchaseTable.CreateDataReader();
         while(dataTableReader.Read())
         {
-            Tuple<String, int, double> item = new Tuple<string, int, double>(dataTableReader[1].ToString(), Convert.ToInt32(dataTableReader[2]), Convert.ToDouble(dataTableReader[3]));
-            purchaseList.Add(item);
+            purchaseList.Add(dataTableReader[1].ToString());
         }
         purchaseTable.Dispose();
         return purchaseList;

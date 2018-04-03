@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -42,6 +42,10 @@
             this.stocksBtn = new System.Windows.Forms.Button();
             this.infoPane = new System.Windows.Forms.Panel();
             this.stocksPanel = new System.Windows.Forms.Panel();
+            this.purchasePrice = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.sharesOwned = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.divYield = new System.Windows.Forms.Label();
             this.peRatio = new System.Windows.Forms.Label();
             this.marketCap = new System.Windows.Forms.Label();
@@ -233,6 +237,10 @@
             // stocksPanel
             // 
             this.stocksPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.stocksPanel.Controls.Add(this.purchasePrice);
+            this.stocksPanel.Controls.Add(this.label13);
+            this.stocksPanel.Controls.Add(this.sharesOwned);
+            this.stocksPanel.Controls.Add(this.label11);
             this.stocksPanel.Controls.Add(this.divYield);
             this.stocksPanel.Controls.Add(this.peRatio);
             this.stocksPanel.Controls.Add(this.marketCap);
@@ -268,6 +276,48 @@
             this.stocksPanel.Size = new System.Drawing.Size(923, 668);
             this.stocksPanel.TabIndex = 2;
             this.stocksPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.stocksPanel_Paint);
+            // 
+            // purchasePrice
+            // 
+            this.purchasePrice.AutoSize = true;
+            this.purchasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasePrice.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.purchasePrice.Location = new System.Drawing.Point(512, 631);
+            this.purchasePrice.Name = "purchasePrice";
+            this.purchasePrice.Size = new System.Drawing.Size(0, 29);
+            this.purchasePrice.TabIndex = 34;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label13.Location = new System.Drawing.Point(269, 621);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(196, 29);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Purchased Price:";
+            // 
+            // sharesOwned
+            // 
+            this.sharesOwned.AutoSize = true;
+            this.sharesOwned.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sharesOwned.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.sharesOwned.Location = new System.Drawing.Point(512, 595);
+            this.sharesOwned.Name = "sharesOwned";
+            this.sharesOwned.Size = new System.Drawing.Size(0, 29);
+            this.sharesOwned.TabIndex = 32;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label11.Location = new System.Drawing.Point(271, 585);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(181, 29);
+            this.label11.TabIndex = 31;
+            this.label11.Text = "Shared Owned:";
             // 
             // divYield
             // 
@@ -392,16 +442,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea2.BackColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea3.BackColor = System.Drawing.Color.Gray;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(275, 33);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -977,6 +1027,10 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button sellButton;
         private System.Windows.Forms.Button buyButton;
+        private System.Windows.Forms.Label purchasePrice;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label sharesOwned;
+        private System.Windows.Forms.Label label11;
     }
 }
 

@@ -21,6 +21,7 @@ namespace StockBuddy
         Boolean mouseDown;
         Point currentMouseLocation;
         Profile savedProfile;
+        Boolean purchasedClicked = false;
 
         public Form1()
         {
@@ -113,6 +114,7 @@ namespace StockBuddy
             sellQTYTextbox.Show();
             addToWatchlist.Show(); 
             searchResultList.Height = 350;
+            purchasedClicked = false;
         }
 
         private void purchasedBtn_Click(object sender, EventArgs e)
@@ -132,11 +134,15 @@ namespace StockBuddy
             sellButton.Show();
             sellQTYLabel.Show();
             sellQTYTextbox.Show();
-            searchResultList.Height = 425; 
+            searchResultList.Height = 425;
+            purchasedClicked = true;
+
         }
 
         private void watchBtn_Click(object sender, EventArgs e)
         {
+            purchasedClicked = false;
+
             searchResultList.Items.Clear();
             var watchList = savedProfile.RetrieveWatchList();
 
@@ -201,6 +207,32 @@ namespace StockBuddy
                     avgVolString ="", marketcapString ="", PERatioString = "", dividendYieldString ="";
 
 
+            if(purchasedClicked)
+            {
+                String symbol = this.searchResultList.Text.Trim();
+                String quantityQuery = "SELECT Quantity FROM PurchaseList WHERE Symbol = " + symbol + ";";
+                DatabaseManager databaseManager = new DatabaseManager();
+                DataTable retrieveTable = databaseManager.SelectQuery(quantityQuery);
+                DataTableReader dataTableReader = retrieveTable.CreateDataReader();
+                String quantityPurchased = "";
+
+                String purchasePriceQuery = "";
+
+                while (dataTableReader.Read())
+                {
+                    quantityPurchased = dataTableReader[1].ToString();
+
+                }
+
+                retrieveTable.Dispose();
+
+
+                sharesOwned.Text = quantityPurchased;
+
+            }
+
+
+            
             var thread = new Thread(
             () =>
             {
@@ -489,5 +521,7 @@ namespace StockBuddy
            
 
         }
+
+
     }
 }
