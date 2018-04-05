@@ -44,6 +44,17 @@ class DatabaseManager
         NonQuery(command);
     }
 
+    public DataTable SingleSelectQuery(String query, String symbol)
+    {
+        DataTable dataTable = new DataTable();
+        SqlCommand command = Connect(query);
+        command.Parameters.AddWithValue("@Symbol", symbol);
+        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+        dataAdapter.Fill(dataTable);
+        Disconnect(command.Connection);
+        return dataTable;
+    }
+
     public DataTable SelectQuery(String query)
     {
         DataTable dataTable = new DataTable();

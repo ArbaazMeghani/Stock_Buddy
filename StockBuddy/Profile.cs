@@ -62,6 +62,22 @@ class Profile
         databaseManager.UpdatePurchaseListItem(symbol, quantity, price, updatePurchaseListItemQuery);
     }
 
+    public Tuple<String, int, double> RetieveSinglePurchase(String symbol)
+    {
+        String query = "SELECT * FROM PurchaseList WHERE Symbol = @Symbol";
+        DataTable purchaseTable = databaseManager.SingleSelectQuery(query, symbol);
+        DataTableReader dataTableReader = purchaseTable.CreateDataReader();
+        dataTableReader.Read();
+        if (!dataTableReader.HasRows)
+            return null;
+        Tuple<String, int, double> purchase = new Tuple<string, int, double>(
+            Convert.ToString(dataTableReader[1]),
+            Convert.ToInt32(dataTableReader[2]), 
+            Convert.ToDouble(dataTableReader[3]));
+        purchaseTable.Dispose();
+        return purchase;
+    }
+
     public void DeletePurchase(String symbol)
     {
         String deletePurchaseListItemQuery = "DELETE FROM PurchaseList WHERE Symbol = @Symbol;";

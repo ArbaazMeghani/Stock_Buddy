@@ -210,24 +210,7 @@ namespace StockBuddy
             if(purchasedClicked)
             {
                 String symbol = this.searchResultList.Text.Trim();
-                String quantityQuery = "SELECT Quantity FROM PurchaseList WHERE Symbol = " + symbol + ";";
-                DatabaseManager databaseManager = new DatabaseManager();
-                DataTable retrieveTable = databaseManager.SelectQuery(quantityQuery);
-                DataTableReader dataTableReader = retrieveTable.CreateDataReader();
-                String quantityPurchased = "";
-
-                String purchasePriceQuery = "";
-
-                while (dataTableReader.Read())
-                {
-                    quantityPurchased = dataTableReader[1].ToString();
-
-                }
-
-                retrieveTable.Dispose();
-
-
-                sharesOwned.Text = quantityPurchased;
+                savedProfile.RetieveSinglePurchase(symbol);
 
             }
 
