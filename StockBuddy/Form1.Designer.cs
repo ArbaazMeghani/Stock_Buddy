@@ -284,9 +284,9 @@
             this.purchasePrice.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.purchasePrice.Location = new System.Drawing.Point(512, 621);
             this.purchasePrice.Name = "purchasePrice";
-            this.purchasePrice.Size = new System.Drawing.Size(52, 29);
+            this.purchasePrice.Size = new System.Drawing.Size(21, 29);
             this.purchasePrice.TabIndex = 34;
-            this.purchasePrice.Text = "300";
+            this.purchasePrice.Text = "-";
             // 
             // label13
             // 
@@ -306,9 +306,9 @@
             this.sharesOwned.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.sharesOwned.Location = new System.Drawing.Point(512, 585);
             this.sharesOwned.Name = "sharesOwned";
-            this.sharesOwned.Size = new System.Drawing.Size(52, 29);
+            this.sharesOwned.Size = new System.Drawing.Size(21, 29);
             this.sharesOwned.TabIndex = 32;
-            this.sharesOwned.Text = "300";
+            this.sharesOwned.Text = "-";
             // 
             // label11
             // 

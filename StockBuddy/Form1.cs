@@ -115,6 +115,10 @@ namespace StockBuddy
             addToWatchlist.Show(); 
             searchResultList.Height = 350;
             purchasedClicked = false;
+            label11.Hide();
+            label13.Hide();
+            sharesOwned.Hide();
+            purchasePrice.Hide();
         }
 
         private void purchasedBtn_Click(object sender, EventArgs e)
@@ -136,6 +140,10 @@ namespace StockBuddy
             sellQTYTextbox.Show();
             searchResultList.Height = 425;
             purchasedClicked = true;
+            label11.Show();
+            label13.Show();
+            sharesOwned.Show();
+            purchasePrice.Show();
 
         }
 
@@ -159,7 +167,12 @@ namespace StockBuddy
             sellButton.Hide();
             
             sellQTYTextbox.Hide();
-            searchResultList.Height = 350; 
+            searchResultList.Height = 350;
+            purchasedClicked = false;
+            label11.Hide();
+            label13.Hide();
+            sharesOwned.Hide();
+            purchasePrice.Hide();
 
         }
 
