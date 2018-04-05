@@ -165,6 +165,7 @@ namespace StockBuddy
 
         private void userInput()
         {
+            
             savedProfile.ClearProfile();
             double savedMoney = (double) Settings.Default["Money"];
             input = Microsoft.VisualBasic.Interaction.InputBox("How many dollars would you like to start off with?", "Initial amount", "0", -1, -1);
@@ -496,7 +497,8 @@ namespace StockBuddy
 
             savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
             savedProfile.RetrievePurchases();
-            purchaseBoxTextbox.Text = "";
+            addStatistics(symbol);
+            purchaseBoxTextbox.Text = " ";
         }
 
         private void sellButtton(object sender, EventArgs e)
@@ -509,6 +511,7 @@ namespace StockBuddy
             if(nSharesOwned > 0)
             {
                 savedProfile.UpdatePurchase(symbol, nSharesOwned, sellPrice);
+                addStatistics(symbol);
 
             }
             else if(nSharesOwned == 0)
@@ -516,9 +519,14 @@ namespace StockBuddy
                 savedProfile.DeletePurchase(symbol);
 
             }
-            sellQTYTextbox.Text = "";
+            else if(nSharesOwned < 0)
+            {
+                MessageBox.Show("You cannot sell what you don't have.");
 
-            purchasedBtn.PerformClick();           
+            }
+            sellQTYTextbox.Text = " ";
+
+            purchasedBtn.PerformClick();         
 
         }
 
