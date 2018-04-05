@@ -210,8 +210,10 @@ namespace StockBuddy
             if(purchasedClicked)
             {
                 String symbol = this.searchResultList.Text.Trim();
-                savedProfile.RetieveSinglePurchase(symbol);
-
+                Tuple<String, int, double> purchase = savedProfile.RetieveSinglePurchase(symbol);
+                Console.WriteLine(purchase.Item1);
+                Console.WriteLine(purchase.Item2);
+                Console.WriteLine(purchase.Item3);
             }
 
 
