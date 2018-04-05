@@ -211,9 +211,8 @@ namespace StockBuddy
             {
                 String symbol = this.searchResultList.Text.Trim();
                 Tuple<String, int, double> purchase = savedProfile.RetieveSinglePurchase(symbol);
-                Console.WriteLine(purchase.Item1);
-                Console.WriteLine(purchase.Item2);
-                Console.WriteLine(purchase.Item3);
+                sharesOwned.Text = purchase.Item2.ToString();
+                purchasePrice.Text = purchase.Item3.ToString();
             }
 
 
@@ -497,13 +496,29 @@ namespace StockBuddy
 
             savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
             savedProfile.RetrievePurchases();
+            purchaseBoxTextbox.Text = "";
         }
 
         private void sellButtton(object sender, EventArgs e)
         {
+            int nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
             String symbol = this.searchResultList.Text.Trim();
-            savedProfile.UpdatePurchase(symbol,5 , 5);
-           
+            int sellQuantity = Convert.ToInt32(sellQTYTextbox.Text.ToString());
+            double sellPrice = Convert.ToDouble(purchasePrice.Text.ToString());
+            nSharesOwned -= sellQuantity;
+            if(nSharesOwned > 0)
+            {
+                savedProfile.UpdatePurchase(symbol, nSharesOwned, sellPrice);
+
+            }
+            else if(nSharesOwned == 0)
+            {
+                savedProfile.DeletePurchase(symbol);
+
+            }
+            sellQTYTextbox.Text = "";
+
+            purchasedBtn.PerformClick();           
 
         }
 
