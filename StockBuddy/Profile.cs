@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-
+using StockBuddy.Properties;
+using StockBuddy;
+using System.Windows.Forms;
 
 class Profile
 {
@@ -96,5 +98,40 @@ class Profile
         }
         purchaseTable.Dispose();
         return purchaseList;
+    }
+
+    public void addMoney(double addAmount)
+    {
+        double money = (double) Settings.Default["Money"];
+        money = money + addAmount;
+        Settings.Default["Money"] = money;
+        var form = Form.ActiveForm as Form1;
+        if(form != null)
+        {
+            form.amountLabel.Text = "$" + Settings.Default["Money"];
+        }
+    }
+
+    public bool subtractMoney(double subAmount)
+    {
+        double money = (double)Settings.Default["Money"];
+        if(subAmount > money)
+        {
+            //return error and no amount subtracted
+            MessageBox.Show("Insufficient funds");
+            return false;
+        }
+
+        else
+        {
+            money = money - subAmount;
+            Settings.Default["Money"] = money;
+            var form = Form.ActiveForm as Form1;
+            if (form != null)
+            {
+                form.amountLabel.Text = "$" + Settings.Default["Money"];
+            }
+            return true;
+        }
     }
 }
