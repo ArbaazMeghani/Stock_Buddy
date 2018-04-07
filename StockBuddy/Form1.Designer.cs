@@ -285,11 +285,7 @@
             this.purchasePrice.Location = new System.Drawing.Point(384, 505);
             this.purchasePrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.purchasePrice.Name = "purchasePrice";
-<<<<<<< HEAD
-            this.purchasePrice.Size = new System.Drawing.Size(40, 24);
-=======
             this.purchasePrice.Size = new System.Drawing.Size(21, 29);
->>>>>>> refs/remotes/origin/master
             this.purchasePrice.TabIndex = 34;
             this.purchasePrice.Text = "-";
             // 
@@ -313,11 +309,7 @@
             this.sharesOwned.Location = new System.Drawing.Point(384, 475);
             this.sharesOwned.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sharesOwned.Name = "sharesOwned";
-<<<<<<< HEAD
-            this.sharesOwned.Size = new System.Drawing.Size(40, 24);
-=======
             this.sharesOwned.Size = new System.Drawing.Size(21, 29);
->>>>>>> refs/remotes/origin/master
             this.sharesOwned.TabIndex = 32;
             this.sharesOwned.Text = "-";
             // 

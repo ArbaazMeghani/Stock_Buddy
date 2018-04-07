@@ -22,6 +22,7 @@ namespace StockBuddy
         Point currentMouseLocation;
         Profile savedProfile;
         Boolean purchasedClicked = false;
+        System.Windows.Forms.Timer refreshTimer;
 
         public Form1()
         {
@@ -43,6 +44,23 @@ namespace StockBuddy
             }
             current_time.Text = DateTime.Now.ToString("h:mm:ss");
             current_date.Text = DateTime.Now.ToString("MMMM dd\nyyyy");
+            RefreshTimer_Setup();
+        }
+
+        private void RefreshTimer_Setup()
+        {
+            refreshTimer = new System.Windows.Forms.Timer();
+            refreshTimer.Interval = 5 * 60 * 1000;
+            refreshTimer.Tick += RefreshTimer_Handler;
+            refreshTimer.Enabled = true;
+        }
+
+        private void RefreshTimer_Handler(Object source, EventArgs e)
+        {
+            String name = this.searchResultList.Text.Trim();
+            if (name == "")
+                return;
+            searchResultList_SelectedIndexChanged(null, null);
         }
 
         private void titlePane_mouseDown(object sender, MouseEventArgs e)
@@ -462,7 +480,7 @@ namespace StockBuddy
         private void searchResultList_SelectedIndexChanged(object sender, EventArgs e)
         {
             String name = this.searchResultList.Text.Trim();
-
+            Console.WriteLine("Updated");
             if (graphTabClicked != null)
                 graphTabClicked.PerformClick();
             else
