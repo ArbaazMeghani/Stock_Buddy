@@ -109,6 +109,7 @@ class Profile
         if(form != null)
         {
             form.amountLabel.Text = "$" + Settings.Default["Money"];
+            Settings.Default.Save();
         }
     }
 
@@ -130,6 +131,7 @@ class Profile
             if (form != null)
             {
                 form.amountLabel.Text = "$" + Settings.Default["Money"];
+                Settings.Default.Save();
             }
             return true;
         }

@@ -235,6 +235,8 @@ namespace StockBuddy
 
             double stock_worth = 0.0;
             double net_gain = 0.0;
+
+            SymbolGrid.Rows.Clear();
  
             List<String> purchases = savedProfile.RetrievePurchases();
             foreach (String symbol in purchases)
