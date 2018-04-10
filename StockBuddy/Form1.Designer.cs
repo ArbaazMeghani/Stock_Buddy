@@ -35,6 +35,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -100,6 +101,8 @@
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label12 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Symbol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.GainOrLoss = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -980,11 +983,20 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Symbol,
+            this.GainOrLoss});
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(412, 342);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(488, 320);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // GainOrLoss
+            // 
+            this.GainOrLoss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
@@ -1087,6 +1099,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Symbol;
+        private System.Windows.Forms.ColumnHeader GainOrLoss;
     }
 }
 
