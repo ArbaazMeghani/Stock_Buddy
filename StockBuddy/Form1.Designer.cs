@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -45,6 +45,9 @@
             this.stocksBtn = new System.Windows.Forms.Button();
             this.infoPane = new System.Windows.Forms.Panel();
             this.summary_panel = new System.Windows.Forms.Panel();
+            this.SymbolGrid = new System.Windows.Forms.DataGridView();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gain = new System.Windows.Forms.DataGridViewImageColumn();
             this.stock_worth_label = new System.Windows.Forms.Label();
             this.price_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.reset_btn = new System.Windows.Forms.Button();
@@ -99,20 +102,19 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.current_time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SymbolGrid = new System.Windows.Forms.DataGridView();
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gain = new System.Windows.Forms.DataGridViewImageColumn();
+            this.net_gain_value_label = new System.Windows.Forms.Label();
+            this.stock_worth_value_label = new System.Windows.Forms.Label();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.infoPane.SuspendLayout();
             this.summary_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SymbolGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_chart)).BeginInit();
             this.stocksPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.searchPanel.SuspendLayout();
             this.titlePane.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SymbolGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // navPan
@@ -236,8 +238,8 @@
             // 
             this.infoPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoPane.BackColor = System.Drawing.Color.Transparent;
-            this.infoPane.Controls.Add(this.summary_panel);
             this.infoPane.Controls.Add(this.stocksPanel);
+            this.infoPane.Controls.Add(this.summary_panel);
             this.infoPane.Location = new System.Drawing.Point(347, 44);
             this.infoPane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.infoPane.Name = "infoPane";
@@ -246,6 +248,8 @@
             // 
             // summary_panel
             // 
+            this.summary_panel.Controls.Add(this.stock_worth_value_label);
+            this.summary_panel.Controls.Add(this.net_gain_value_label);
             this.summary_panel.Controls.Add(this.SymbolGrid);
             this.summary_panel.Controls.Add(this.stock_worth_label);
             this.summary_panel.Controls.Add(this.price_chart);
@@ -256,6 +260,36 @@
             this.summary_panel.Name = "summary_panel";
             this.summary_panel.Size = new System.Drawing.Size(923, 668);
             this.summary_panel.TabIndex = 32;
+            // 
+            // SymbolGrid
+            // 
+            this.SymbolGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SymbolGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Symbol,
+            this.Gain});
+            this.SymbolGrid.Location = new System.Drawing.Point(396, 358);
+            this.SymbolGrid.Name = "SymbolGrid";
+            this.SymbolGrid.RowTemplate.Height = 24;
+            this.SymbolGrid.Size = new System.Drawing.Size(504, 304);
+            this.SymbolGrid.TabIndex = 4;
+            // 
+            // Symbol
+            // 
+            this.Symbol.Frozen = true;
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.MinimumWidth = 252;
+            this.Symbol.Name = "Symbol";
+            this.Symbol.ReadOnly = true;
+            this.Symbol.Width = 252;
+            // 
+            // Gain
+            // 
+            this.Gain.Frozen = true;
+            this.Gain.HeaderText = "Gain/Loss";
+            this.Gain.MinimumWidth = 252;
+            this.Gain.Name = "Gain";
+            this.Gain.ReadOnly = true;
+            this.Gain.Width = 252;
             // 
             // stock_worth_label
             // 
@@ -272,16 +306,16 @@
             // 
             // price_chart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.price_chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.price_chart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.price_chart.ChartAreas.Add(chartArea3);
+            legend2.Name = "Legend1";
+            this.price_chart.Legends.Add(legend2);
             this.price_chart.Location = new System.Drawing.Point(17, 40);
             this.price_chart.Name = "price_chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.price_chart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.price_chart.Series.Add(series3);
             this.price_chart.Size = new System.Drawing.Size(883, 287);
             this.price_chart.TabIndex = 2;
             this.price_chart.Text = "chart2";
@@ -523,16 +557,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea2.BackColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea4.BackColor = System.Drawing.Color.Gray;
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Location = new System.Drawing.Point(275, 34);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -981,35 +1015,29 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // SymbolGrid
+            // net_gain_value_label
             // 
-            this.SymbolGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.SymbolGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Symbol,
-            this.Gain});
-            this.SymbolGrid.Location = new System.Drawing.Point(396, 358);
-            this.SymbolGrid.Name = "SymbolGrid";
-            this.SymbolGrid.RowTemplate.Height = 24;
-            this.SymbolGrid.Size = new System.Drawing.Size(504, 304);
-            this.SymbolGrid.TabIndex = 4;
+            this.net_gain_value_label.AutoSize = true;
+            this.net_gain_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.net_gain_value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.net_gain_value_label.Location = new System.Drawing.Point(239, 358);
+            this.net_gain_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.net_gain_value_label.Name = "net_gain_value_label";
+            this.net_gain_value_label.Size = new System.Drawing.Size(24, 32);
+            this.net_gain_value_label.TabIndex = 5;
+            this.net_gain_value_label.Text = "-";
             // 
-            // Symbol
+            // stock_worth_value_label
             // 
-            this.Symbol.Frozen = true;
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.MinimumWidth = 252;
-            this.Symbol.Name = "Symbol";
-            this.Symbol.ReadOnly = true;
-            this.Symbol.Width = 252;
-            // 
-            // Gain
-            // 
-            this.Gain.Frozen = true;
-            this.Gain.HeaderText = "Gain/Loss";
-            this.Gain.MinimumWidth = 252;
-            this.Gain.Name = "Gain";
-            this.Gain.ReadOnly = true;
-            this.Gain.Width = 252;
+            this.stock_worth_value_label.AutoSize = true;
+            this.stock_worth_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stock_worth_value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.stock_worth_value_label.Location = new System.Drawing.Point(239, 443);
+            this.stock_worth_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.stock_worth_value_label.Name = "stock_worth_value_label";
+            this.stock_worth_value_label.Size = new System.Drawing.Size(24, 32);
+            this.stock_worth_value_label.TabIndex = 6;
+            this.stock_worth_value_label.Text = "-";
             // 
             // Form1
             // 
@@ -1033,6 +1061,7 @@
             this.infoPane.ResumeLayout(false);
             this.summary_panel.ResumeLayout(false);
             this.summary_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SymbolGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_chart)).EndInit();
             this.stocksPanel.ResumeLayout(false);
             this.stocksPanel.PerformLayout();
@@ -1041,7 +1070,6 @@
             this.searchPanel.PerformLayout();
             this.titlePane.ResumeLayout(false);
             this.titlePane.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SymbolGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1115,6 +1143,8 @@
         private System.Windows.Forms.DataGridView SymbolGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
         private System.Windows.Forms.DataGridViewImageColumn Gain;
+        private System.Windows.Forms.Label stock_worth_value_label;
+        private System.Windows.Forms.Label net_gain_value_label;
     }
 }
 

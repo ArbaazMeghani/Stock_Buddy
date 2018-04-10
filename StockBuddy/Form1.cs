@@ -46,6 +46,7 @@ namespace StockBuddy
             current_time.Text = DateTime.Now.ToString("h:mm:ss");
             current_date.Text = DateTime.Now.ToString("MMMM dd\nyyyy");
             RefreshTimer_Setup();
+            profilePicture_Click(null, null);
         }
 
         private void RefreshTimer_Setup()
@@ -231,6 +232,37 @@ namespace StockBuddy
             }
             stocksPanel.Hide();
             summary_panel.Show();
+
+            double stock_worth = 0.0;
+            double net_gain = 0.0;
+ 
+            List<String> purchases = savedProfile.RetrievePurchases();
+            foreach (String symbol in purchases)
+            {
+                var single_purchase = savedProfile.RetieveSinglePurchase(symbol.Trim());
+                double price_bought = single_purchase.Item3;
+                int quantity = single_purchase.Item2;
+                double current_price = 0.0;
+                var thread = new Thread(() =>
+                {
+                    StatisticsDictionary stats = new StatisticsDictionary(symbol.Trim());
+                    current_price = Convert.ToDouble(stats.getStat("latestPrice"));
+                });
+                thread.Start();
+                thread.Join();
+                if (price_bought < current_price)
+                    SymbolGrid.Rows.Add(symbol, Resources.upward_green);
+                else if(price_bought > current_price)
+                    SymbolGrid.Rows.Add(symbol, Resources.downward_red);
+                else
+                    SymbolGrid.Rows.Add(symbol, Resources.neutral_yellow);
+
+                stock_worth += current_price * quantity;
+                net_gain += (current_price * quantity) - (price_bought * quantity);
+            }
+
+            stock_worth_value_label.Text = stock_worth.ToString();
+            net_gain_value_label.Text = net_gain.ToString();
         }
 
         private void addStatistics(String name)
@@ -529,7 +561,7 @@ namespace StockBuddy
         private void buyButton_Click(object sender, EventArgs e)
         {
             String symbol = this.searchResultList.Text.Trim();
-            double buyPrice = Convert.ToDouble(purchasePrice.Text.ToString());
+            double buyPrice = Convert.ToDouble(purchaseBoxTextbox.Text.ToString().Trim());
             double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
             double subtractAmount = buyPrice * buyQuantity;
             if(savedProfile.subtractMoney(subtractAmount) == true)
