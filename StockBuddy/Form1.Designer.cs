@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -238,8 +238,8 @@
             // 
             this.infoPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoPane.BackColor = System.Drawing.Color.Transparent;
-            this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Controls.Add(this.summary_panel);
+            this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Location = new System.Drawing.Point(347, 44);
             this.infoPane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.infoPane.Name = "infoPane";
@@ -269,6 +269,7 @@
             this.Gain});
             this.SymbolGrid.Location = new System.Drawing.Point(396, 358);
             this.SymbolGrid.Name = "SymbolGrid";
+            this.SymbolGrid.RowHeadersVisible = false;
             this.SymbolGrid.RowTemplate.Height = 24;
             this.SymbolGrid.Size = new System.Drawing.Size(504, 304);
             this.SymbolGrid.TabIndex = 4;
@@ -306,16 +307,16 @@
             // 
             // price_chart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.price_chart.ChartAreas.Add(chartArea3);
-            legend2.Name = "Legend1";
-            this.price_chart.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            this.price_chart.ChartAreas.Add(chartArea5);
+            legend3.Name = "Legend1";
+            this.price_chart.Legends.Add(legend3);
             this.price_chart.Location = new System.Drawing.Point(17, 40);
             this.price_chart.Name = "price_chart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.price_chart.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.price_chart.Series.Add(series5);
             this.price_chart.Size = new System.Drawing.Size(883, 287);
             this.price_chart.TabIndex = 2;
             this.price_chart.Text = "chart2";
@@ -557,16 +558,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea4.BackColor = System.Drawing.Color.Gray;
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
+            chartArea6.BackColor = System.Drawing.Color.Gray;
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
             this.chart1.Location = new System.Drawing.Point(275, 34);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Name = "Series1";
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
