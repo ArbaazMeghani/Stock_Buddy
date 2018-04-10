@@ -578,47 +578,59 @@ namespace StockBuddy
         private void buyButton_Click(object sender, EventArgs e)
         {
             String symbol = this.searchResultList.Text.Trim();
-            double buyPrice = Convert.ToDouble(purchaseBoxTextbox.Text.ToString().Trim());
-            double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
-            double subtractAmount = buyPrice * buyQuantity;
-            if(savedProfile.subtractMoney(subtractAmount) == true)
+            if ((purchaseBoxTextbox.Text.ToString()) != "")
             {
-                savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
-                savedProfile.RetrievePurchases();
-                addStatistics(symbol);
-                purchaseBoxTextbox.Text = " ";
+                double buyPrice = Convert.ToDouble(purchaseBoxTextbox.Text.ToString().Trim());
+                double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
+                double subtractAmount = buyPrice * buyQuantity;
+                if (savedProfile.subtractMoney(subtractAmount) == true)
+                {
+                    savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
+                    savedProfile.RetrievePurchases();
+                    addStatistics(symbol);
+                    purchaseBoxTextbox.Text = "";
+                }
             }
-           
+
         }
 
         private void sellButtton(object sender, EventArgs e)
         {
-            int nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
+            int nSharesOwned = 0;
+            int sellQuantity = 0;
+            double sellPrice = 0;
+            double totalPrice = 0;
+            if (sharesOwned.Text.ToString() != "-" && sellQTYTextbox.Text.ToString() != "")
+            {
+                nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
+                sellQuantity = Convert.ToInt32(sellQTYTextbox.Text.ToString());
+                sellPrice = Convert.ToDouble(purchasePrice.Text.ToString());
+                totalPrice = sellPrice * Convert.ToDouble(sellQuantity);
+
+
+            }
             String symbol = this.searchResultList.Text.Trim();
-            int sellQuantity = Convert.ToInt32(sellQTYTextbox.Text.ToString());
-            double sellPrice = Convert.ToDouble(purchasePrice.Text.ToString());
-            double totalPrice = sellPrice * Convert.ToDouble(sellQuantity);
             nSharesOwned -= sellQuantity;
-            if(nSharesOwned > 0)
+            if (nSharesOwned > 0)
             {
                 savedProfile.UpdatePurchase(symbol, nSharesOwned, sellPrice);
                 addStatistics(symbol);
                 savedProfile.addMoney(totalPrice);
 
             }
-            else if(nSharesOwned == 0)
+            else if (nSharesOwned == 0)
             {
                 savedProfile.DeletePurchase(symbol);
 
             }
-            else if(nSharesOwned < 0)
+            else if (nSharesOwned < 0)
             {
                 MessageBox.Show("You cannot sell what you don't have.");
 
             }
             sellQTYTextbox.Text = " ";
 
-            purchasedBtn.PerformClick();         
+            purchasedBtn.PerformClick();
 
         }
 
