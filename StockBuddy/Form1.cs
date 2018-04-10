@@ -237,6 +237,8 @@ namespace StockBuddy
             double net_gain = 0.0;
 
             SymbolGrid.Rows.Clear();
+            price_chart.Series[0].Points.Clear();
+            price_chart.Series[1].Points.Clear();
  
             List<String> purchases = savedProfile.RetrievePurchases();
             foreach (String symbol in purchases)
@@ -261,6 +263,8 @@ namespace StockBuddy
 
                 stock_worth += current_price * quantity;
                 net_gain += (current_price * quantity) - (price_bought * quantity);
+                price_chart.Series[0].Points.AddXY(symbol, price_bought);
+                price_chart.Series[1].Points.AddXY(symbol, current_price);
             }
 
             stock_worth_value_label.Text = stock_worth.ToString();

@@ -30,11 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -45,9 +48,9 @@
             this.stocksBtn = new System.Windows.Forms.Button();
             this.infoPane = new System.Windows.Forms.Panel();
             this.summary_panel = new System.Windows.Forms.Panel();
+            this.stock_worth_value_label = new System.Windows.Forms.Label();
+            this.net_gain_value_label = new System.Windows.Forms.Label();
             this.SymbolGrid = new System.Windows.Forms.DataGridView();
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gain = new System.Windows.Forms.DataGridViewImageColumn();
             this.stock_worth_label = new System.Windows.Forms.Label();
             this.price_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.reset_btn = new System.Windows.Forms.Button();
@@ -102,8 +105,8 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.current_time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.net_gain_value_label = new System.Windows.Forms.Label();
-            this.stock_worth_value_label = new System.Windows.Forms.Label();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gain = new System.Windows.Forms.DataGridViewImageColumn();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -261,36 +264,45 @@
             this.summary_panel.Size = new System.Drawing.Size(923, 668);
             this.summary_panel.TabIndex = 32;
             // 
+            // stock_worth_value_label
+            // 
+            this.stock_worth_value_label.AutoSize = true;
+            this.stock_worth_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stock_worth_value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.stock_worth_value_label.Location = new System.Drawing.Point(239, 443);
+            this.stock_worth_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.stock_worth_value_label.Name = "stock_worth_value_label";
+            this.stock_worth_value_label.Size = new System.Drawing.Size(24, 32);
+            this.stock_worth_value_label.TabIndex = 6;
+            this.stock_worth_value_label.Text = "-";
+            // 
+            // net_gain_value_label
+            // 
+            this.net_gain_value_label.AutoSize = true;
+            this.net_gain_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.net_gain_value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.net_gain_value_label.Location = new System.Drawing.Point(239, 358);
+            this.net_gain_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.net_gain_value_label.Name = "net_gain_value_label";
+            this.net_gain_value_label.Size = new System.Drawing.Size(24, 32);
+            this.net_gain_value_label.TabIndex = 5;
+            this.net_gain_value_label.Text = "-";
+            // 
             // SymbolGrid
             // 
+            this.SymbolGrid.AllowUserToAddRows = false;
+            this.SymbolGrid.AllowUserToDeleteRows = false;
             this.SymbolGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SymbolGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Symbol,
             this.Gain});
             this.SymbolGrid.Location = new System.Drawing.Point(396, 358);
             this.SymbolGrid.Name = "SymbolGrid";
+            this.SymbolGrid.ReadOnly = true;
             this.SymbolGrid.RowHeadersVisible = false;
             this.SymbolGrid.RowTemplate.Height = 24;
             this.SymbolGrid.Size = new System.Drawing.Size(504, 304);
             this.SymbolGrid.TabIndex = 4;
-            // 
-            // Symbol
-            // 
-            this.Symbol.Frozen = true;
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.MinimumWidth = 252;
-            this.Symbol.Name = "Symbol";
-            this.Symbol.ReadOnly = true;
-            this.Symbol.Width = 252;
-            // 
-            // Gain
-            // 
-            this.Gain.Frozen = true;
-            this.Gain.HeaderText = "Gain/Loss";
-            this.Gain.MinimumWidth = 252;
-            this.Gain.Name = "Gain";
-            this.Gain.ReadOnly = true;
-            this.Gain.Width = 252;
             // 
             // stock_worth_label
             // 
@@ -307,16 +319,26 @@
             // 
             // price_chart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.price_chart.ChartAreas.Add(chartArea5);
-            legend3.Name = "Legend1";
-            this.price_chart.Legends.Add(legend3);
+            this.price_chart.BackColor = System.Drawing.Color.Gray;
+            chartArea1.BackColor = System.Drawing.Color.Gray;
+            chartArea1.Name = "ChartArea1";
+            this.price_chart.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Silver;
+            legend1.Name = "Legend1";
+            this.price_chart.Legends.Add(legend1);
             this.price_chart.Location = new System.Drawing.Point(17, 40);
             this.price_chart.Name = "price_chart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.price_chart.Series.Add(series5);
+            this.price_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Blue;
+            series1.Legend = "Legend1";
+            series1.Name = "Price Bought At";
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.Name = "Latest Price";
+            this.price_chart.Series.Add(series1);
+            this.price_chart.Series.Add(series2);
             this.price_chart.Size = new System.Drawing.Size(883, 287);
             this.price_chart.TabIndex = 2;
             this.price_chart.Text = "chart2";
@@ -558,16 +580,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea6.BackColor = System.Drawing.Color.Gray;
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
+            chartArea2.BackColor = System.Drawing.Color.Gray;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(275, 34);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -1016,29 +1038,35 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // net_gain_value_label
+            // Symbol
             // 
-            this.net_gain_value_label.AutoSize = true;
-            this.net_gain_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.net_gain_value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.net_gain_value_label.Location = new System.Drawing.Point(239, 358);
-            this.net_gain_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.net_gain_value_label.Name = "net_gain_value_label";
-            this.net_gain_value_label.Size = new System.Drawing.Size(24, 32);
-            this.net_gain_value_label.TabIndex = 5;
-            this.net_gain_value_label.Text = "-";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Symbol.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Symbol.Frozen = true;
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.MinimumWidth = 252;
+            this.Symbol.Name = "Symbol";
+            this.Symbol.ReadOnly = true;
+            this.Symbol.Width = 252;
             // 
-            // stock_worth_value_label
+            // Gain
             // 
-            this.stock_worth_value_label.AutoSize = true;
-            this.stock_worth_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stock_worth_value_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.stock_worth_value_label.Location = new System.Drawing.Point(239, 443);
-            this.stock_worth_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.stock_worth_value_label.Name = "stock_worth_value_label";
-            this.stock_worth_value_label.Size = new System.Drawing.Size(24, 32);
-            this.stock_worth_value_label.TabIndex = 6;
-            this.stock_worth_value_label.Text = "-";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.Gain.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Gain.Frozen = true;
+            this.Gain.HeaderText = "Gain/Loss";
+            this.Gain.MinimumWidth = 252;
+            this.Gain.Name = "Gain";
+            this.Gain.ReadOnly = true;
+            this.Gain.Width = 252;
             // 
             // Form1
             // 
@@ -1142,10 +1170,10 @@
         private System.Windows.Forms.Label stock_worth_label;
         private System.Windows.Forms.DataVisualization.Charting.Chart price_chart;
         private System.Windows.Forms.DataGridView SymbolGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
-        private System.Windows.Forms.DataGridViewImageColumn Gain;
         private System.Windows.Forms.Label stock_worth_value_label;
         private System.Windows.Forms.Label net_gain_value_label;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
+        private System.Windows.Forms.DataGridViewImageColumn Gain;
     }
 }
 
