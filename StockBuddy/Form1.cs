@@ -244,8 +244,11 @@ namespace StockBuddy
             {
                 String symbol = this.searchResultList.Text.Trim();
                 Tuple<String, int, double> purchase = savedProfile.RetieveSinglePurchase(symbol);
-                sharesOwned.Text = purchase.Item2.ToString();
-                purchasePrice.Text = purchase.Item3.ToString();
+                if (purchase != null)
+                {
+                    sharesOwned.Text = purchase.Item2.ToString();
+                    purchasePrice.Text = purchase.Item3.ToString();
+                }
             }
 
 
