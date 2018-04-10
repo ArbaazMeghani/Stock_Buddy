@@ -32,6 +32,7 @@ namespace StockBuddy
             //foreach (String symbol in symbols)
                 //searchResultList.Items.Add(symbol);
             stocksPanel.Hide();
+            setUpSearchAutoFill();
             //purchasePanel.Hide();
             //watchlistPanel.Hide();
             amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
@@ -569,6 +570,46 @@ namespace StockBuddy
 
         }
 
-      
+        void setUpSearchAutoFill()
+        {
+            searchText.KeyDown += new KeyEventHandler(searchText_KeyDown);
+            searchText.Text = "";
+            searchText.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            searchText.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+
+            var symbols = StockSymbols.getAllSymbols();
+
+            foreach (var symbol in symbols)
+            {
+         
+                collection.Add(symbol);     
+            }
+
+            searchText.AutoCompleteCustomSource = collection; 
+
+        }
+
+        private void searchText_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.searchResultList.Text = "";
+
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.LButton)
+            {
+                this.searchResultList.Text = this.searchText.Text.Trim();
+                Console.Write(searchResultList.Text);
+                Console.WriteLine(this.searchText.Text.Trim());
+                searchResultList_SelectedIndexChanged(null, null);
+            }
+
+        }
+
+        private void searchText_TextChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+
+
     }
 }
