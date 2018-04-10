@@ -398,7 +398,7 @@ namespace StockBuddy
         private void Day_Click(object sender, EventArgs e)
         {
             handleGraphTabs_Click((Button)sender);
-            String name = this.searchResultList.Text.Trim();
+            String name = chartName;
             List<Tuple<String, String,String>> dayTuple = new List<Tuple<String, String,String>>();
             ParsedData parseObject = new ParsedData();
             var thread = new Thread(
@@ -415,7 +415,7 @@ namespace StockBuddy
         private void Month1_Click(object sender, EventArgs e)
         {
             handleGraphTabs_Click((Button)sender);
-            String name = this.searchResultList.Text.Trim();  
+            String name = chartName;  
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
             var thread = new Thread(
@@ -432,7 +432,7 @@ namespace StockBuddy
         private void Month3_Click(object sender, EventArgs e)
         {
             handleGraphTabs_Click((Button)sender);
-            String name = this.searchResultList.Text.Trim();
+            String name = chartName;
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
             var thread = new Thread(
@@ -449,7 +449,7 @@ namespace StockBuddy
         private void Month6_Click(object sender, EventArgs e)
         {
             handleGraphTabs_Click((Button)sender);
-            String name = this.searchResultList.Text.Trim();
+            String name = chartName;
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
             var thread = new Thread(
@@ -466,7 +466,7 @@ namespace StockBuddy
         private void Year1_Click(object sender, EventArgs e)
         {
             handleGraphTabs_Click((Button)sender);
-            String name = this.searchResultList.Text.Trim();
+            String name = chartName;
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
             var thread = new Thread(
@@ -483,7 +483,7 @@ namespace StockBuddy
         private void Year5_Click(object sender, EventArgs e)
         {
             handleGraphTabs_Click((Button)sender);
-            String name = this.searchResultList.Text.Trim();
+            String name = chartName;
             List<Tuple<String, String>> dataTuple = new List<Tuple<String, String>>();
             ParsedData parseObject = new ParsedData();
             var thread = new Thread(
@@ -517,7 +517,22 @@ namespace StockBuddy
 
         private void searchResultList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String name = this.searchResultList.Text.Trim();
+            //String name = "kjkj";
+            
+            if (searched == true)
+            {
+                chartName = this.searchText.Text.Trim();
+                //searchResultList.ResetText();
+                this.searchResultList.Text = String.Copy(chartName);
+                Console.WriteLine(searchResultList.Text.Trim());
+                Console.WriteLine("Name below. Text above");
+                Console.WriteLine(chartName);
+                searched = false; 
+            }
+            else {
+                chartName = this.searchResultList.Text.Trim();
+            }
+
             Console.WriteLine("Updated");
             if (graphTabClicked != null)
                 graphTabClicked.PerformClick();
@@ -526,7 +541,7 @@ namespace StockBuddy
                 Year5.PerformClick();
         
             }
-            addStatistics(name);
+            addStatistics(chartName);
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -626,14 +641,17 @@ namespace StockBuddy
             searchText.AutoCompleteCustomSource = collection; 
 
         }
-
+        Boolean searched = false;
+        String chartName = "";
         private void searchText_KeyDown(object sender, KeyEventArgs e)
         {
-            this.searchResultList.Text = "";
+            
+            
 
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.LButton)
             {
-                this.searchResultList.Text = this.searchText.Text.Trim();
+                searched = true; 
+                //this.searchResultList.Text = this.searchText.Text.Trim();
                 Console.Write(searchResultList.Text);
                 Console.WriteLine(this.searchText.Text.Trim());
                 searchResultList_SelectedIndexChanged(null, null);
