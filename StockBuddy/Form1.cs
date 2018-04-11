@@ -584,7 +584,7 @@ namespace StockBuddy
             String symbol = this.searchResultList.Text.Trim();
             if ((purchaseBoxTextbox.Text.ToString()) != "")
             {
-                double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Trim());
+                double buyPrice = Convert.ToDouble(latestPrice  .Text.ToString().Trim());
                 double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
                 double subtractAmount = buyPrice * buyQuantity;
                 if (savedProfile.subtractMoney(subtractAmount) == true)
@@ -625,6 +625,7 @@ namespace StockBuddy
             else if (nSharesOwned == 0)
             {
                 savedProfile.DeletePurchase(symbol);
+                savedProfile.addMoney(totalPrice);
 
             }
             else if (nSharesOwned < 0)
