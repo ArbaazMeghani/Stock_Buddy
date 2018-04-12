@@ -583,7 +583,7 @@ namespace StockBuddy
 
         private void buyButton_Click(object sender, EventArgs e)
         {
-            String symbol = this.searchResultList.Text.Trim();
+            String symbol = chartName;//this.searchResultList.Text.Trim();
             if ((purchaseBoxTextbox.Text.ToString()) != "")
             {
                 double buyPrice = Convert.ToDouble(latestPrice  .Text.ToString().Trim());
