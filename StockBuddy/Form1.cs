@@ -267,6 +267,8 @@ namespace StockBuddy
                 price_chart.Series[1].Points.AddXY(symbol, current_price);
             }
 
+            net_gain = Math.Round(net_gain, 3);
+            stock_worth = Math.Round(stock_worth, 3);
             stock_worth_value_label.Text = stock_worth.ToString();
             net_gain_value_label.Text = net_gain.ToString();
         }

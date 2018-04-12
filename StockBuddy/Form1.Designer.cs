@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.net_label = new System.Windows.Forms.Label();
@@ -51,6 +51,8 @@
             this.stock_worth_value_label = new System.Windows.Forms.Label();
             this.net_gain_value_label = new System.Windows.Forms.Label();
             this.SymbolGrid = new System.Windows.Forms.DataGridView();
+            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gain = new System.Windows.Forms.DataGridViewImageColumn();
             this.stock_worth_label = new System.Windows.Forms.Label();
             this.price_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.reset_btn = new System.Windows.Forms.Button();
@@ -105,8 +107,6 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.current_time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Symbol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gain = new System.Windows.Forms.DataGridViewImageColumn();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -303,6 +303,36 @@
             this.SymbolGrid.RowTemplate.Height = 24;
             this.SymbolGrid.Size = new System.Drawing.Size(504, 304);
             this.SymbolGrid.TabIndex = 4;
+            // 
+            // Symbol
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Symbol.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Symbol.Frozen = true;
+            this.Symbol.HeaderText = "Symbol";
+            this.Symbol.MinimumWidth = 252;
+            this.Symbol.Name = "Symbol";
+            this.Symbol.ReadOnly = true;
+            this.Symbol.Width = 252;
+            // 
+            // Gain
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.Gain.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Gain.Frozen = true;
+            this.Gain.HeaderText = "Gain/Loss";
+            this.Gain.MinimumWidth = 252;
+            this.Gain.Name = "Gain";
+            this.Gain.ReadOnly = true;
+            this.Gain.Width = 252;
             // 
             // stock_worth_label
             // 
@@ -1037,36 +1067,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Symbol
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Symbol.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Symbol.Frozen = true;
-            this.Symbol.HeaderText = "Symbol";
-            this.Symbol.MinimumWidth = 252;
-            this.Symbol.Name = "Symbol";
-            this.Symbol.ReadOnly = true;
-            this.Symbol.Width = 252;
-            // 
-            // Gain
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Gain.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Gain.Frozen = true;
-            this.Gain.HeaderText = "Gain/Loss";
-            this.Gain.MinimumWidth = 252;
-            this.Gain.Name = "Gain";
-            this.Gain.ReadOnly = true;
-            this.Gain.Width = 252;
             // 
             // Form1
             // 
