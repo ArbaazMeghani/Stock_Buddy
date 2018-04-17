@@ -59,6 +59,11 @@ namespace StockBuddy
 
         private void RefreshTimer_Handler(Object source, EventArgs e)
         {
+            if(currentClicked == null)
+            {
+                profilePicture_Click(null, null);
+                Console.WriteLine("refreshed profile");
+            }
             String name = this.searchResultList.Text.Trim();
             if (name == "")
                 return;
@@ -507,7 +512,11 @@ namespace StockBuddy
         private void reset_btn_Click(object sender, EventArgs e)
         {
             userInput();
-            
+            net_gain_value_label.Text = "-";
+            stock_worth_value_label.Text = "-";
+            price_chart.Series[0].Points.Clear();
+            price_chart.Series[1].Points.Clear();
+            SymbolGrid.Rows.Clear();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
