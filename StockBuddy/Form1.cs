@@ -584,20 +584,24 @@ namespace StockBuddy
         private void buyButton_Click(object sender, EventArgs e)
         {
             String symbol = chartName;//this.searchResultList.Text.Trim();
-            if ((purchaseBoxTextbox.Text.ToString()) != "")
+            if (purchaseBoxTextbox.Text.ToString() == "")
+                MessageBox.Show("Please Enter Quantity in 'Pur. QTY' Box");
+            else
             {
-                double buyPrice = Convert.ToDouble(latestPrice  .Text.ToString().Trim());
-                double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
-                double subtractAmount = buyPrice * buyQuantity;
-                if (savedProfile.subtractMoney(subtractAmount) == true)
+                if ((purchaseBoxTextbox.Text.ToString()) != "")
                 {
-                    savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
-                    savedProfile.RetrievePurchases();
-                    addStatistics(symbol);
-                    purchaseBoxTextbox.Text = "";
+                    double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Trim());
+                    double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
+                    double subtractAmount = buyPrice * buyQuantity;
+                    if (savedProfile.subtractMoney(subtractAmount) == true)
+                    {
+                        savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
+                        savedProfile.RetrievePurchases();
+                        addStatistics(symbol);
+                        purchaseBoxTextbox.Text = "";
+                    }
                 }
             }
-
         }
 
         private void sellButtton(object sender, EventArgs e)
@@ -606,39 +610,45 @@ namespace StockBuddy
             int sellQuantity = 0;
             double sellPrice = 0;
             double totalPrice = 0;
-            if (sharesOwned.Text.ToString() != "-" && sellQTYTextbox.Text.ToString() != "")
+            if (sellQTYTextbox.Text.ToString() == "")
+                MessageBox.Show("Please Enter Quantity in 'Sell QTY' box");
+
+            else
             {
-                nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
-                sellQuantity = Convert.ToInt32(sellQTYTextbox.Text.ToString());
-                sellPrice = Convert.ToDouble(purchasePrice.Text.ToString());
-                totalPrice = sellPrice * Convert.ToDouble(sellQuantity);
+
+                if (sharesOwned.Text.ToString() != "-" && sellQTYTextbox.Text.ToString() != "")
+                {
+                    nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
+                    sellQuantity = Convert.ToInt32(sellQTYTextbox.Text.ToString());
+                    sellPrice = Convert.ToDouble(purchasePrice.Text.ToString());
+                    totalPrice = sellPrice * Convert.ToDouble(sellQuantity);
 
 
+                }
+                String symbol = this.searchResultList.Text.Trim();
+                nSharesOwned -= sellQuantity;
+                if (nSharesOwned > 0)
+                {
+                    savedProfile.UpdatePurchase(symbol, nSharesOwned, sellPrice);
+                    addStatistics(symbol);
+                    savedProfile.addMoney(totalPrice);
+
+                }
+                else if (nSharesOwned == 0)
+                {
+                    savedProfile.DeletePurchase(symbol);
+                    savedProfile.addMoney(totalPrice);
+
+                }
+                else if (nSharesOwned < 0)
+                {
+                    MessageBox.Show("You cannot sell what you don't have.");
+
+                }
+                sellQTYTextbox.Text = " ";
+
+               // purchasedBtn.PerformClick();
             }
-            String symbol = this.searchResultList.Text.Trim();
-            nSharesOwned -= sellQuantity;
-            if (nSharesOwned > 0)
-            {
-                savedProfile.UpdatePurchase(symbol, nSharesOwned, sellPrice);
-                addStatistics(symbol);
-                savedProfile.addMoney(totalPrice);
-
-            }
-            else if (nSharesOwned == 0)
-            {
-                savedProfile.DeletePurchase(symbol);
-                savedProfile.addMoney(totalPrice);
-
-            }
-            else if (nSharesOwned < 0)
-            {
-                MessageBox.Show("You cannot sell what you don't have.");
-
-            }
-            sellQTYTextbox.Text = " ";
-
-            purchasedBtn.PerformClick();
-
         }
 
         void setUpSearchAutoFill()
