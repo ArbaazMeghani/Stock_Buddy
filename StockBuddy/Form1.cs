@@ -654,7 +654,7 @@ namespace StockBuddy
                     savedProfile.addMoney(totalPrice);
 
                 }
-                else if (nSharesOwned == 0)
+                else if (nSharesOwned <= 0)
                 {
                     savedProfile.DeletePurchase(symbol);
                     savedProfile.addMoney(totalPrice);
@@ -663,7 +663,7 @@ namespace StockBuddy
                 
                 sellQTYTextbox.Text = " ";
 
-               // purchasedBtn.PerformClick();
+                purchasedBtn.PerformClick();
             }
         }
 
