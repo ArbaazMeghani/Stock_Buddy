@@ -619,12 +619,21 @@ namespace StockBuddy
             int sellQuantity = 0;
             double sellPrice = 0;
             double totalPrice = 0;
-            if (sellQTYTextbox.Text.ToString() == "")
+
+            if (sharesOwned.Text.ToString() == "-")
+            {
+                MessageBox.Show("You do not own any of this share");
+
+            }
+
+            if (sellQTYTextbox.Text.ToString() == "") {
                 MessageBox.Show("Please Enter Quantity in 'Sell QTY' box");
+            }
+
 
             else
             {
-
+                
                 if (sharesOwned.Text.ToString() != "-" && sellQTYTextbox.Text.ToString() != "")
                 {
                     nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
@@ -635,7 +644,9 @@ namespace StockBuddy
 
                 }
                 String symbol = this.searchResultList.Text.Trim();
+       
                 nSharesOwned -= sellQuantity;
+                //MessageBox.Show(nSharesOwned.ToString());
                 if (nSharesOwned > 0)
                 {
                     savedProfile.UpdatePurchase(symbol, nSharesOwned, sellPrice);
@@ -649,11 +660,7 @@ namespace StockBuddy
                     savedProfile.addMoney(totalPrice);
 
                 }
-                else if (nSharesOwned < 0)
-                {
-                    MessageBox.Show("You cannot sell what you don't have.");
-
-                }
+                
                 sellQTYTextbox.Text = " ";
 
                // purchasedBtn.PerformClick();
