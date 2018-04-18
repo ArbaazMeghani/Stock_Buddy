@@ -686,6 +686,22 @@ namespace StockBuddy
             searchText.AutoCompleteCustomSource = collection; 
 
         }
+
+        private Boolean isValidSymbol(String name)
+        {
+            var symbols = StockSymbols.getAllSymbols();
+            String temp = "";
+            foreach (var symbol in symbols)
+            {
+                temp = symbol.Trim();
+                if (temp.Equals(name))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
         Boolean searched = false;
         String chartName = "";
         private void searchText_KeyDown(object sender, KeyEventArgs e)
@@ -695,11 +711,10 @@ namespace StockBuddy
 
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.LButton)
             {
-                searched = true; 
-                //this.searchResultList.Text = this.searchText.Text.Trim();
-                Console.Write(searchResultList.Text);
-                Console.WriteLine(this.searchText.Text.Trim());
-                searchResultList_SelectedIndexChanged(null, null);
+                if (isValidSymbol(this.searchText.Text.Trim()) == true) {
+                    searched = true;
+                    searchResultList_SelectedIndexChanged(null, null);
+                }
             }
 
         }
