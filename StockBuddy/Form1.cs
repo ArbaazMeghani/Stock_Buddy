@@ -593,7 +593,7 @@ namespace StockBuddy
         private void buyButton_Click(object sender, EventArgs e)
         {
             String symbol = chartName;//this.searchResultList.Text.Trim();
-            if (purchaseBoxTextbox.Text.ToString() == "")
+            if (purchaseBoxTextbox.Text.ToString() == "" || int.TryParse(purchaseBoxTextbox.Text.Trim(), out int n) == false)
                 MessageBox.Show("Please Enter Quantity in 'Pur. QTY' Box");
             else
             {
