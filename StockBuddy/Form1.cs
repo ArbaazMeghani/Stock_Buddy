@@ -689,18 +689,7 @@ namespace StockBuddy
 
         private Boolean isValidSymbol(String name)
         {
-            var symbols = StockSymbols.getAllSymbols();
-            String temp = "";
-            foreach (var symbol in symbols)
-            {
-                temp = symbol.Trim();
-                if (temp.Equals(name))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return StockSymbols.getAllSymbols().Contains(name);
         }
         Boolean searched = false;
         String chartName = "";

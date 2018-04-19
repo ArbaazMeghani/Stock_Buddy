@@ -24,7 +24,7 @@ class StockSymbols
         String symbols = getRequest().Result;
         String[] individualSymbols = symbols.Split('\n');
         for (int i = 1; i < individualSymbols.Length; i++)
-            allSymbols.Add(individualSymbols[i]);
+            allSymbols.Add(individualSymbols[i].Trim());
     }
 
     private async Task<String> getRequest()
