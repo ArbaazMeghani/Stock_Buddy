@@ -106,10 +106,25 @@ namespace StockBuddy
         {
             if (currentClicked != null)
                 currentClicked.BackColor = Color.Transparent;
-
+            
             currentClicked = clicked;
             currentClicked.BackColor = Color.Orange;
-            
+
+            OPEN.Text = "-";
+            latestPrice.Text = "-";
+            HIGH.Text = "-";
+            LOW.Text = "-";
+            yearHigh.Text = "-";
+            yearLow.Text = "-";
+            VOLUME.Text = "-";
+            avgVolume.Text = "-";
+            marketCap.Text = "-";
+            peRatio.Text = "-";
+            divYield.Text = "-";
+            sharesOwned.Text = "-";
+            purchasePrice.Text = "-";
+            chart1.Series.Clear();
+
         }
 
         private void handleGraphTabs_Click(Button clicked)
