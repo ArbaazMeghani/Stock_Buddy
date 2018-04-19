@@ -648,9 +648,9 @@ namespace StockBuddy
 
             }
 
-            if (sellQTYTextbox.Text.ToString() == "" || int.TryParse(purchaseBoxTextbox.Text.Trim(), out int n) == false)
+            if (sellQTYTextbox.Text.ToString() == "" || int.TryParse(sellQTYTextbox.Text.Trim(), out int n) == false)
                 MessageBox.Show("Please Enter Quantity in 'Sell. QTY' Box");
-            else if (Convert.ToInt32(purchaseBoxTextbox.Text.Trim()) <= 0)
+            else if (Convert.ToInt32(sellQTYTextbox.Text.Trim()) <= 0)
                 MessageBox.Show("Please Enter Quantity Greater than 0 in 'Sell. QTY' Box");
 
 
