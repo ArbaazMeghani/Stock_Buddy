@@ -595,6 +595,8 @@ namespace StockBuddy
             String symbol = chartName;//this.searchResultList.Text.Trim();
             if (purchaseBoxTextbox.Text.ToString() == "" || int.TryParse(purchaseBoxTextbox.Text.Trim(), out int n) == false)
                 MessageBox.Show("Please Enter Quantity in 'Pur. QTY' Box");
+            else if (Convert.ToInt32(purchaseBoxTextbox.Text.Trim()) <= 0)
+                MessageBox.Show("Please Enter Quantity Greater than 0 in 'Pur. QTY' Box");
             else
             {
                 if ((purchaseBoxTextbox.Text.ToString()) != "")
@@ -626,9 +628,10 @@ namespace StockBuddy
 
             }
 
-            if (sellQTYTextbox.Text.ToString() == "") {
-                MessageBox.Show("Please Enter Quantity in 'Sell QTY' box");
-            }
+            if (sellQTYTextbox.Text.ToString() == "" || int.TryParse(purchaseBoxTextbox.Text.Trim(), out int n) == false)
+                MessageBox.Show("Please Enter Quantity in 'Sell. QTY' Box");
+            else if (Convert.ToInt32(purchaseBoxTextbox.Text.Trim()) <= 0)
+                MessageBox.Show("Please Enter Quantity Greater than 0 in 'Sell. QTY' Box");
 
 
             else
