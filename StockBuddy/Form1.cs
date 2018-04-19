@@ -603,10 +603,28 @@ namespace StockBuddy
                 {
                     double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Trim());
                     double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
+                    double avgPrice = 0;
+                    double oldNetWorth = 0;
+                    double addNewWorth = 0;
+                    int totalShares = 0;
+
+
                     double subtractAmount = buyPrice * buyQuantity;
+                    Tuple<String, int, double> purchase = savedProfile.RetieveSinglePurchase(symbol);
+
+
                     if (savedProfile.subtractMoney(subtractAmount) == true)
                     {
-                        savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
+                        if (purchase == null)
+                            savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
+                        else
+                        {
+                            oldNetWorth = (purchase.Item2 * purchase.Item3);
+                            addNewWorth = (Convert.ToInt32(purchaseBoxTextbox.Text) * Convert.ToDouble(latestPrice.Text));
+                            totalShares = purchase.Item2 + Convert.ToInt32(purchaseBoxTextbox.Text);
+                            avgPrice = (oldNetWorth + addNewWorth) / totalShares;
+                            savedProfile.UpdatePurchase(symbol, totalShares, avgPrice);
+                        }
                         savedProfile.RetrievePurchases();
                         addStatistics(symbol);
                         purchaseBoxTextbox.Text = "";
