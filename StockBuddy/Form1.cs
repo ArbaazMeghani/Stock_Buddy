@@ -35,7 +35,9 @@ namespace StockBuddy
             setUpSearchAutoFill();
             //purchasePanel.Hide();
             //watchlistPanel.Hide();
-            amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
+            double displayMoney = Convert.ToDouble(Settings.Default["Money"]);
+            amountLabel.Text = "$" + Convert.ToString(Math.Round(displayMoney, 2));
+            //amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
             //Settings.Default["FirstTime"] = true;
             if (Convert.ToBoolean(Settings.Default["FirstTime"]))
             {
@@ -135,8 +137,8 @@ namespace StockBuddy
             summary_panel.Hide();
             stocksPanel.Show();
             removeFromWatchlist.Hide();
-            sellQTYLabel.Show();
-            sellQTYTextbox.Show();
+            sellQTYLabel.Hide();
+            sellQTYTextbox.Hide();
             addToWatchlist.Show(); 
             searchResultList.Height = 350;
             purchasedClicked = false;
@@ -144,6 +146,7 @@ namespace StockBuddy
             label13.Hide();
             sharesOwned.Hide();
             purchasePrice.Hide();
+            sellButton.Hide();
         }
 
         private void purchasedBtn_Click(object sender, EventArgs e)
@@ -220,7 +223,8 @@ namespace StockBuddy
             Settings.Default["Money"] = savedMoney;
             Settings.Default["FirstTime"] = false;
             Settings.Default.Save();
-            amountLabel.Text = "$" + Convert.ToString(Settings.Default["Money"]);
+            double displayMoney = Convert.ToDouble(Settings.Default["Money"]);
+            amountLabel.Text = "$" + Convert.ToString(Math.Round(displayMoney, 2));
         }
 
         private void stocksPanel_Paint(object sender, PaintEventArgs e)

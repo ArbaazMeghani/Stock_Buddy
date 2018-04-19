@@ -108,7 +108,9 @@ class Profile
         var form = Form.ActiveForm as Form1;
         if(form != null)
         {
-            form.amountLabel.Text = "$" + Settings.Default["Money"];
+            double displayMoney = Convert.ToDouble(Settings.Default["Money"]);
+            form.amountLabel.Text = "$" + Convert.ToString(Math.Round(displayMoney, 2));
+            //form.amountLabel.Text = "$" + Settings.Default["Money"];
             Settings.Default.Save();
         }
     }
@@ -130,7 +132,9 @@ class Profile
             var form = Form.ActiveForm as Form1;
             if (form != null)
             {
-                form.amountLabel.Text = "$" + Settings.Default["Money"];
+                double displayMoney = Convert.ToDouble(Settings.Default["Money"]);
+                form.amountLabel.Text = "$" + Convert.ToString(Math.Round(displayMoney, 2));
+                //form.amountLabel.Text = "$" + Settings.Default["Money"];
                 Settings.Default.Save();
             }
             return true;
