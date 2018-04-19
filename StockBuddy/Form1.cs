@@ -568,17 +568,12 @@ namespace StockBuddy
         {
             String symbol = this.searchResultList.Text.Trim();
 
-            //Console.WriteLine(symbol);
 
-            savedProfile.DeleteWatchListItem(symbol);
-            savedProfile.SaveWatchListItem(symbol);
-
-            var temp =  savedProfile.RetrieveWatchList();
-
-            foreach (var i in temp)
-            {
-                Console.WriteLine(i);
+            if (isValidSymbol(symbol)) {
+                savedProfile.DeleteWatchListItem(symbol);
+                savedProfile.SaveWatchListItem(symbol);
             }
+            
             
         }
 
@@ -587,7 +582,14 @@ namespace StockBuddy
             String symbol = this.searchResultList.Text.Trim();
 
             savedProfile.DeleteWatchListItem(symbol);
-        
+            searchResultList.Items.Clear();
+            var watchList = savedProfile.RetrieveWatchList();
+
+            foreach (var sym in watchList)
+            {
+                searchResultList.Items.Add(sym);
+            }
+
         }
 
         private void buyButton_Click(object sender, EventArgs e)
