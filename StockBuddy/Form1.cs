@@ -342,10 +342,13 @@ namespace StockBuddy
             double marketCapDouble = Convert.ToDouble(marketcapString);
             double volumeDouble = Convert.ToDouble(volumeString);
             double avgVolDouble = Convert.ToDouble(avgVolString);
+            double priceDouble = Convert.ToDouble(priceString);
 
 
             divYieldDouble  = Math.Round(divYieldDouble, 3);
             dividendYieldString = Convert.ToString(divYieldDouble);
+            priceDouble = Math.Round(priceDouble, 2);
+            priceString = Convert.ToString(priceDouble);
 
             if((marketCapDouble > 1000000) && marketCapDouble < 1000000000)
             {
@@ -374,6 +377,7 @@ namespace StockBuddy
                 avgVolString = Convert.ToString(avgVolDouble) + "M";
             }
 
+            
 
             OPEN.Text = openString;
             latestPrice.Text = priceString;
