@@ -342,10 +342,13 @@ namespace StockBuddy
             double marketCapDouble = Convert.ToDouble(marketcapString);
             double volumeDouble = Convert.ToDouble(volumeString);
             double avgVolDouble = Convert.ToDouble(avgVolString);
+            double priceDouble = Convert.ToDouble(priceString);
 
 
             divYieldDouble  = Math.Round(divYieldDouble, 3);
             dividendYieldString = Convert.ToString(divYieldDouble);
+            priceDouble = Math.Round(priceDouble, 2);
+            priceString = Convert.ToString(priceDouble);
 
             if((marketCapDouble > 1000000) && marketCapDouble < 1000000000)
             {
@@ -374,6 +377,7 @@ namespace StockBuddy
                 avgVolString = Convert.ToString(avgVolDouble) + "M";
             }
 
+            
 
             OPEN.Text = openString;
             latestPrice.Text = priceString;
@@ -618,7 +622,7 @@ namespace StockBuddy
                 MessageBox.Show("Please Enter Quantity in 'Pur. QTY' Box");
             else if (Convert.ToInt32(purchaseBoxTextbox.Text.Trim()) <= 0)
                 MessageBox.Show("Please Enter Quantity Greater than 0 in 'Pur. QTY' Box");
-            else
+            else if(isValidSymbol(symbol))
             {
                 if ((purchaseBoxTextbox.Text.ToString()) != "")
                 {
@@ -652,6 +656,8 @@ namespace StockBuddy
                     }
                 }
             }
+            else
+                MessageBox.Show("Please Select A Stock");
         }
 
         private void sellButtton(object sender, EventArgs e)
@@ -731,7 +737,7 @@ namespace StockBuddy
 
         private Boolean isValidSymbol(String name)
         {
-            return StockSymbols.getAllSymbols().Contains(name);
+            return StockSymbols.getAllSymbols().Contains(name.ToUpper());
         }
         Boolean searched = false;
         String chartName = "";
