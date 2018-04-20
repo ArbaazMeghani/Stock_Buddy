@@ -622,7 +622,7 @@ namespace StockBuddy
                 MessageBox.Show("Please Enter Quantity in 'Pur. QTY' Box");
             else if (Convert.ToInt32(purchaseBoxTextbox.Text.Trim()) <= 0)
                 MessageBox.Show("Please Enter Quantity Greater than 0 in 'Pur. QTY' Box");
-            else
+            else if(isValidSymbol(symbol))
             {
                 if ((purchaseBoxTextbox.Text.ToString()) != "")
                 {
@@ -656,6 +656,8 @@ namespace StockBuddy
                     }
                 }
             }
+            else
+                MessageBox.Show("Please Select A Stock");
         }
 
         private void sellButtton(object sender, EventArgs e)
