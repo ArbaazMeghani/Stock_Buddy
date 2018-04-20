@@ -731,7 +731,7 @@ namespace StockBuddy
 
         private Boolean isValidSymbol(String name)
         {
-            return StockSymbols.getAllSymbols().Contains(name);
+            return StockSymbols.getAllSymbols().Contains(name.ToUpper());
         }
         Boolean searched = false;
         String chartName = "";
