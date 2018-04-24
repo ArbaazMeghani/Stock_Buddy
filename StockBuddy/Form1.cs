@@ -642,10 +642,13 @@ namespace StockBuddy
                     double subtractAmount = buyPrice * buyQuantity;
                     Tuple<String, int, double> purchase = savedProfile.RetieveSinglePurchase(symbol);
 
+                    if (!savedProfile.subtractMoney(subtractAmount))
+                        return;
+
+
                     if (purchase == null)
                     {
                         savedProfile.SavePurchase(symbol, Convert.ToInt32(quantityTxt.Text), Convert.ToDouble(latestPrice.Text));
-                        savedProfile.subtractMoney(subtractAmount);
                     }
                     else
                     {
@@ -655,7 +658,6 @@ namespace StockBuddy
                         avgPrice = (oldNetWorth + addNewWorth) / totalShares;
                         avgPrice = Math.Round(avgPrice, 2);
                         savedProfile.UpdatePurchase(symbol, totalShares, avgPrice);
-                        savedProfile.subtractMoney(subtractAmount);
                         //System.Diagnostics.Debug.WriteLine(avgPrice);
                     }
                     savedProfile.RetrievePurchases();
