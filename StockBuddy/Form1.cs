@@ -568,6 +568,9 @@ namespace StockBuddy
                 chartName = this.searchResultList.Text.Trim();
             }
 
+            if (!isValidSymbol(chartName))
+                return;
+
             Console.WriteLine("Updated");
             if (graphTabClicked != null)
                 graphTabClicked.PerformClick();
