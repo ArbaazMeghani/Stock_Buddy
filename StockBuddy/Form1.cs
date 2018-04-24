@@ -260,7 +260,12 @@ namespace StockBuddy
             SymbolGrid.Rows.Clear();
             price_chart.Series[0].Points.Clear();
             price_chart.Series[1].Points.Clear();
- 
+
+            SymbolGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            SymbolGrid.AllowUserToResizeRows = false;
+            SymbolGrid.RowTemplate.Height = 70;
+            SymbolGrid.RowTemplate.MinimumHeight = 70;
+
             List<String> purchases = savedProfile.RetrievePurchases();
             foreach (String symbol in purchases)
             {
