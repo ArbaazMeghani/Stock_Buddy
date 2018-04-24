@@ -152,8 +152,7 @@ namespace StockBuddy
             summary_panel.Hide();
             stocksPanel.Show();
             removeFromWatchlist.Hide();
-            sellQTYLabel.Hide();
-            sellQTYTextbox.Hide();
+            quantityTxt.Show();
             addToWatchlist.Show(); 
             searchResultList.Height = 350;
             purchasedClicked = false;
@@ -179,8 +178,7 @@ namespace StockBuddy
             removeFromWatchlist.Hide();
             addToWatchlist.Hide();
             sellButton.Show();
-            sellQTYLabel.Show();
-            sellQTYTextbox.Show();
+            quantityTxt.Show();
             searchResultList.Height = 425;
             purchasedClicked = true;
             label11.Show();
@@ -206,10 +204,9 @@ namespace StockBuddy
             summary_panel.Hide();
             removeFromWatchlist.Show();
             removeFromWatchlist.Location = new Point(3,403);
-            sellQTYLabel.Hide();
             sellButton.Hide();
             
-            sellQTYTextbox.Hide();
+            quantityTxt.Show();
             searchResultList.Height = 350;
             purchasedClicked = false;
             label11.Hide();
@@ -618,16 +615,16 @@ namespace StockBuddy
         private void buyButton_Click(object sender, EventArgs e)
         {
             String symbol = chartName;//this.searchResultList.Text.Trim();
-            if (purchaseBoxTextbox.Text.ToString() == "" || int.TryParse(purchaseBoxTextbox.Text.Trim(), out int n) == false)
+            if (quantityTxt.Text.ToString() == "" || int.TryParse(quantityTxt.Text.Trim(), out int n) == false)
                 MessageBox.Show("Please Enter Quantity in 'Pur. QTY' Box");
-            else if (Convert.ToInt32(purchaseBoxTextbox.Text.Trim()) <= 0)
+            else if (Convert.ToInt32(quantityTxt.Text.Trim()) <= 0)
                 MessageBox.Show("Please Enter Quantity Greater than 0 in 'Pur. QTY' Box");
             else if(isValidSymbol(symbol))
             {
-                if ((purchaseBoxTextbox.Text.ToString()) != "")
+                if ((quantityTxt.Text.ToString()) != "")
                 {
                     double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Trim());
-                    double buyQuantity = Convert.ToDouble(purchaseBoxTextbox.Text.ToString());
+                    double buyQuantity = Convert.ToDouble(quantityTxt.Text.ToString());
                     double avgPrice = 0;
                     double oldNetWorth = 0;
                     double addNewWorth = 0;
@@ -641,18 +638,18 @@ namespace StockBuddy
                     if (savedProfile.subtractMoney(subtractAmount) == true)
                     {
                         if (purchase == null)
-                            savedProfile.SavePurchase(symbol, Convert.ToInt32(purchaseBoxTextbox.Text), Convert.ToDouble(latestPrice.Text));
+                            savedProfile.SavePurchase(symbol, Convert.ToInt32(quantityTxt.Text), Convert.ToDouble(latestPrice.Text));
                         else
                         {
                             oldNetWorth = (purchase.Item2 * purchase.Item3);
-                            addNewWorth = (Convert.ToInt32(purchaseBoxTextbox.Text) * Convert.ToDouble(latestPrice.Text));
-                            totalShares = purchase.Item2 + Convert.ToInt32(purchaseBoxTextbox.Text);
+                            addNewWorth = (Convert.ToInt32(quantityTxt.Text) * Convert.ToDouble(latestPrice.Text));
+                            totalShares = purchase.Item2 + Convert.ToInt32(quantityTxt.Text);
                             avgPrice = (oldNetWorth + addNewWorth) / totalShares;
                             savedProfile.UpdatePurchase(symbol, totalShares, avgPrice);
                         }
                         savedProfile.RetrievePurchases();
                         addStatistics(symbol);
-                        purchaseBoxTextbox.Text = "";
+                        quantityTxt.Text = "Quantity";
                     }
                 }
             }
@@ -673,19 +670,19 @@ namespace StockBuddy
 
             }
 
-            if (sellQTYTextbox.Text.ToString() == "" || int.TryParse(sellQTYTextbox.Text.Trim(), out int n) == false)
+            if (quantityTxt.Text.ToString() == "" || int.TryParse(quantityTxt.Text.Trim(), out int n) == false)
                 MessageBox.Show("Please Enter Quantity in 'Sell. QTY' Box");
-            else if (Convert.ToInt32(sellQTYTextbox.Text.Trim()) <= 0)
+            else if (Convert.ToInt32(quantityTxt.Text.Trim()) <= 0)
                 MessageBox.Show("Please Enter Quantity Greater than 0 in 'Sell. QTY' Box");
 
 
             else
             {
                 
-                if (sharesOwned.Text.ToString() != "-" && sellQTYTextbox.Text.ToString() != "")
+                if (sharesOwned.Text.ToString() != "-" && quantityTxt.Text.ToString() != "")
                 {
                     nSharesOwned = Convert.ToInt32(sharesOwned.Text.ToString());
-                    sellQuantity = Convert.ToInt32(sellQTYTextbox.Text.ToString());
+                    sellQuantity = Convert.ToInt32(quantityTxt.Text.ToString());
                     sellPrice = Convert.ToDouble(purchasePrice.Text.ToString());
                     totalPrice = sellPrice * Convert.ToDouble(sellQuantity);
 
@@ -709,7 +706,7 @@ namespace StockBuddy
 
                 }
                 
-                sellQTYTextbox.Text = " ";
+                quantityTxt.Text = "Quantity";
 
                 purchasedBtn.PerformClick();
             }
