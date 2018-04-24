@@ -60,7 +60,7 @@ class Profile
 
     public void UpdatePurchase(String symbol, int quantity, double price)
     {
-        String updatePurchaseListItemQuery = "UPDATE PurchaseList SET Quantity = @Quantity WHERE Symbol = @Symbol AND Price = @Price;";
+        String updatePurchaseListItemQuery = "UPDATE PurchaseList SET Quantity = @Quantity, Price = @Price WHERE Symbol = @Symbol;";
         databaseManager.UpdatePurchaseListItem(symbol, quantity, price, updatePurchaseListItemQuery);
     }
 

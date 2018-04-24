@@ -629,7 +629,7 @@ namespace StockBuddy
                 MessageBox.Show("Please Enter Quantity Greater than 0 in 'Pur. QTY' Box");
             else if(isValidSymbol(symbol))
             {
-                if ((quantityTxt.Text.ToString()) != "")
+                if ((quantityTxt.Text.ToString()) != "Quantity")
                 {
                     double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Trim());
                     double buyQuantity = Convert.ToDouble(quantityTxt.Text.ToString());
@@ -642,23 +642,26 @@ namespace StockBuddy
                     double subtractAmount = buyPrice * buyQuantity;
                     Tuple<String, int, double> purchase = savedProfile.RetieveSinglePurchase(symbol);
 
-
-                    if (savedProfile.subtractMoney(subtractAmount) == true)
+                    if (purchase == null)
                     {
-                        if (purchase == null)
-                            savedProfile.SavePurchase(symbol, Convert.ToInt32(quantityTxt.Text), Convert.ToDouble(latestPrice.Text));
-                        else
-                        {
-                            oldNetWorth = (purchase.Item2 * purchase.Item3);
-                            addNewWorth = (Convert.ToInt32(quantityTxt.Text) * Convert.ToDouble(latestPrice.Text));
-                            totalShares = purchase.Item2 + Convert.ToInt32(quantityTxt.Text);
-                            avgPrice = (oldNetWorth + addNewWorth) / totalShares;
-                            savedProfile.UpdatePurchase(symbol, totalShares, avgPrice);
-                        }
-                        savedProfile.RetrievePurchases();
-                        addStatistics(symbol);
-                        quantityTxt.Text = "Quantity";
+                        savedProfile.SavePurchase(symbol, Convert.ToInt32(quantityTxt.Text), Convert.ToDouble(latestPrice.Text));
+                        savedProfile.subtractMoney(subtractAmount);
                     }
+                    else
+                    {
+                        oldNetWorth = (purchase.Item2 * purchase.Item3);
+                        addNewWorth = (Convert.ToInt32(quantityTxt.Text) * Convert.ToDouble(latestPrice.Text));
+                        totalShares = purchase.Item2 + Convert.ToInt32(quantityTxt.Text.ToString());
+                        avgPrice = (oldNetWorth + addNewWorth) / totalShares;
+                        avgPrice = Math.Round(avgPrice, 2);
+                        savedProfile.UpdatePurchase(symbol, totalShares, avgPrice);
+                        savedProfile.subtractMoney(subtractAmount);
+                        //System.Diagnostics.Debug.WriteLine(avgPrice);
+                    }
+                    savedProfile.RetrievePurchases();
+                    addStatistics(symbol);
+                    quantityTxt.Text = "Quantity";
+                    
                 }
             }
             else
@@ -760,6 +763,8 @@ namespace StockBuddy
             }
 
         }
+
+
 
         private void searchText_TextChanged(object sender, EventArgs e)
         {
