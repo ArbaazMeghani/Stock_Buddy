@@ -28,9 +28,7 @@ namespace StockBuddy
         {
             InitializeComponent();
             savedProfile = new Profile();
-            HashSet<String> symbols = StockSymbols.getAllSymbols();
-            //foreach (String symbol in symbols)
-                //searchResultList.Items.Add(symbol);
+            loadSymbols();
             stocksPanel.Hide();
             setUpSearchAutoFill();
             //purchasePanel.Hide();
@@ -142,12 +140,17 @@ namespace StockBuddy
             
         }
 
-        private void StocksBtn_Click(object sender, EventArgs e)
+        void loadSymbols()
         {
-            searchResultList.Items.Clear();
             HashSet<String> symbols = StockSymbols.getAllSymbols();
             foreach (String symbol in symbols)
                 searchResultList.Items.Add(symbol);
+        }
+
+        private void StocksBtn_Click(object sender, EventArgs e)
+        {
+            searchResultList.Items.Clear();
+            loadSymbols();
             handleNav_Click((Button)sender);
             summary_panel.Hide();
             stocksPanel.Show();
