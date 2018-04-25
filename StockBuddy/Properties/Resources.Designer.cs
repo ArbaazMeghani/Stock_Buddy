@@ -83,6 +83,26 @@ namespace StockBuddy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SB_Full {
+            get {
+                object obj = ResourceManager.GetObject("SB_Full", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SB_Logo {
+            get {
+                object obj = ResourceManager.GetObject("SB_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap upward_green {
             get {
                 object obj = ResourceManager.GetObject("upward_green", resourceCulture);
