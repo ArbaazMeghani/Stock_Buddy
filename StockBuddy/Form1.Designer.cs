@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea25 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series37 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea26 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series38 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series39 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.profilePicture = new System.Windows.Forms.PictureBox();
@@ -103,6 +103,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.current_time = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.navPan.SuspendLayout();
             this.summaryPane.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
@@ -114,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SymbolGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price_chart)).BeginInit();
             this.titlePane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // navPan
@@ -142,12 +144,13 @@
             // 
             // profilePicture
             // 
-            this.profilePicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("profilePicture.BackgroundImage")));
+            this.profilePicture.Image = global::StockBuddy.Properties.Resources.SB_Logo;
             this.profilePicture.InitialImage = null;
-            this.profilePicture.Location = new System.Drawing.Point(85, 64);
+            this.profilePicture.Location = new System.Drawing.Point(53, 82);
             this.profilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(160, 146);
+            this.profilePicture.Size = new System.Drawing.Size(249, 145);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.profilePicture.TabIndex = 4;
             this.profilePicture.TabStop = false;
             this.profilePicture.Click += new System.EventHandler(this.profilePicture_Click);
@@ -157,7 +160,7 @@
             this.amountLabel.AutoSize = true;
             this.amountLabel.Font = new System.Drawing.Font("Century", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amountLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.amountLabel.Location = new System.Drawing.Point(107, 241);
+            this.amountLabel.Location = new System.Drawing.Point(109, 229);
             this.amountLabel.Name = "amountLabel";
             this.amountLabel.Size = new System.Drawing.Size(119, 33);
             this.amountLabel.TabIndex = 2;
@@ -224,8 +227,8 @@
             // 
             this.infoPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoPane.BackColor = System.Drawing.Color.Transparent;
-            this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Controls.Add(this.summary_panel);
+            this.infoPane.Controls.Add(this.stocksPanel);
             this.infoPane.Location = new System.Drawing.Point(347, 44);
             this.infoPane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.infoPane.Name = "infoPane";
@@ -442,16 +445,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea1.BackColor = System.Drawing.Color.Gray;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea25.BackColor = System.Drawing.Color.Gray;
+            chartArea25.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea25);
             this.chart1.Location = new System.Drawing.Point(275, 34);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series37.ChartArea = "ChartArea1";
+            series37.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series37.Name = "Series1";
+            this.chart1.Series.Add(series37);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -804,7 +807,7 @@
             this.stock_worth_value_label.AutoSize = true;
             this.stock_worth_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stock_worth_value_label.ForeColor = System.Drawing.Color.LightGreen;
-            this.stock_worth_value_label.Location = new System.Drawing.Point(65, 546);
+            this.stock_worth_value_label.Location = new System.Drawing.Point(625, 516);
             this.stock_worth_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stock_worth_value_label.Name = "stock_worth_value_label";
             this.stock_worth_value_label.Size = new System.Drawing.Size(24, 32);
@@ -816,7 +819,7 @@
             this.net_gain_value_label.AutoSize = true;
             this.net_gain_value_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.net_gain_value_label.ForeColor = System.Drawing.Color.Gold;
-            this.net_gain_value_label.Location = new System.Drawing.Point(65, 410);
+            this.net_gain_value_label.Location = new System.Drawing.Point(625, 400);
             this.net_gain_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.net_gain_value_label.Name = "net_gain_value_label";
             this.net_gain_value_label.Size = new System.Drawing.Size(24, 32);
@@ -831,7 +834,7 @@
             this.SymbolGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Symbol,
             this.Gain});
-            this.SymbolGrid.Location = new System.Drawing.Point(396, 358);
+            this.SymbolGrid.Location = new System.Drawing.Point(17, 338);
             this.SymbolGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SymbolGrid.Name = "SymbolGrid";
             this.SymbolGrid.ReadOnly = true;
@@ -842,11 +845,11 @@
             // 
             // Symbol
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Symbol.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.White;
+            this.Symbol.DefaultCellStyle = dataGridViewCellStyle25;
             this.Symbol.Frozen = true;
             this.Symbol.HeaderText = "Symbol";
             this.Symbol.MinimumWidth = 130;
@@ -857,13 +860,13 @@
             // 
             // Gain
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Gain.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle26.NullValue")));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
+            this.Gain.DefaultCellStyle = dataGridViewCellStyle26;
             this.Gain.Frozen = true;
             this.Gain.HeaderText = "Gain/Loss";
             this.Gain.MinimumWidth = 252;
@@ -877,7 +880,7 @@
             this.stock_worth_label.AutoSize = true;
             this.stock_worth_label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stock_worth_label.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.stock_worth_label.Location = new System.Drawing.Point(11, 496);
+            this.stock_worth_label.Location = new System.Drawing.Point(589, 462);
             this.stock_worth_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stock_worth_label.Name = "stock_worth_label";
             this.stock_worth_label.Size = new System.Drawing.Size(176, 32);
@@ -888,26 +891,26 @@
             // price_chart
             // 
             this.price_chart.BackColor = System.Drawing.Color.Gray;
-            chartArea2.BackColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.price_chart.ChartAreas.Add(chartArea2);
-            legend1.BackColor = System.Drawing.Color.Silver;
-            legend1.Name = "Legend1";
-            this.price_chart.Legends.Add(legend1);
+            chartArea26.BackColor = System.Drawing.Color.Gray;
+            chartArea26.Name = "ChartArea1";
+            this.price_chart.ChartAreas.Add(chartArea26);
+            legend13.BackColor = System.Drawing.Color.Silver;
+            legend13.Name = "Legend1";
+            this.price_chart.Legends.Add(legend13);
             this.price_chart.Location = new System.Drawing.Point(17, 39);
             this.price_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.price_chart.Name = "price_chart";
             this.price_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Blue;
-            series2.Legend = "Legend1";
-            series2.Name = "Price Bought At";
-            series3.ChartArea = "ChartArea1";
-            series3.Color = System.Drawing.Color.Red;
-            series3.Legend = "Legend1";
-            series3.Name = "Latest Price";
-            this.price_chart.Series.Add(series2);
-            this.price_chart.Series.Add(series3);
+            series38.ChartArea = "ChartArea1";
+            series38.Color = System.Drawing.Color.Blue;
+            series38.Legend = "Legend1";
+            series38.Name = "Price Bought At";
+            series39.ChartArea = "ChartArea1";
+            series39.Color = System.Drawing.Color.Red;
+            series39.Legend = "Legend1";
+            series39.Name = "Latest Price";
+            this.price_chart.Series.Add(series38);
+            this.price_chart.Series.Add(series39);
             this.price_chart.Size = new System.Drawing.Size(883, 287);
             this.price_chart.TabIndex = 2;
             this.price_chart.Text = "chart2";
@@ -932,7 +935,7 @@
             this.net_label2.AutoSize = true;
             this.net_label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.net_label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.net_label2.Location = new System.Drawing.Point(12, 369);
+            this.net_label2.Location = new System.Drawing.Point(582, 353);
             this.net_label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.net_label2.Name = "net_label2";
             this.net_label2.Size = new System.Drawing.Size(128, 32);
@@ -1024,6 +1027,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::StockBuddy.Properties.Resources.SB_Full;
+            this.pictureBox1.Location = new System.Drawing.Point(1135, 690);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1032,6 +1046,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.titlePane);
             this.Controls.Add(this.infoPane);
             this.Controls.Add(this.navPan);
@@ -1056,6 +1071,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.price_chart)).EndInit();
             this.titlePane.ResumeLayout(false);
             this.titlePane.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1127,6 +1143,7 @@
         private System.Windows.Forms.Label net_gain_value_label;
         private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
         private System.Windows.Forms.DataGridViewImageColumn Gain;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
