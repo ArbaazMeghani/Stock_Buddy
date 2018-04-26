@@ -258,9 +258,9 @@
             this.stock_worth_value_label.Location = new System.Drawing.Point(625, 516);
             this.stock_worth_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stock_worth_value_label.Name = "stock_worth_value_label";
-            this.stock_worth_value_label.Size = new System.Drawing.Size(24, 32);
+            this.stock_worth_value_label.Size = new System.Drawing.Size(30, 32);
             this.stock_worth_value_label.TabIndex = 6;
-            this.stock_worth_value_label.Text = "-";
+            this.stock_worth_value_label.Text = "0";
             // 
             // net_gain_value_label
             // 
@@ -270,9 +270,9 @@
             this.net_gain_value_label.Location = new System.Drawing.Point(625, 400);
             this.net_gain_value_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.net_gain_value_label.Name = "net_gain_value_label";
-            this.net_gain_value_label.Size = new System.Drawing.Size(24, 32);
+            this.net_gain_value_label.Size = new System.Drawing.Size(30, 32);
             this.net_gain_value_label.TabIndex = 5;
-            this.net_gain_value_label.Text = "-";
+            this.net_gain_value_label.Text = "0";
             // 
             // SymbolGrid
             // 
