@@ -385,7 +385,7 @@ namespace StockBuddy
             
 
             OPEN.Text = openString;
-            latestPrice.Text = priceString;
+            latestPrice.Text = "$" + priceString;
             HIGH.Text = highString;
             LOW.Text = lowString;
             yearHigh.Text = yearHighString;

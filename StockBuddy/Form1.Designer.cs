@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.navPan = new System.Windows.Forms.Panel();
             this.summaryPane = new System.Windows.Forms.Panel();
             this.profilePicture = new System.Windows.Forms.PictureBox();
@@ -227,8 +227,8 @@
             // 
             this.infoPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoPane.BackColor = System.Drawing.Color.Transparent;
-            this.infoPane.Controls.Add(this.summary_panel);
             this.infoPane.Controls.Add(this.stocksPanel);
+            this.infoPane.Controls.Add(this.summary_panel);
             this.infoPane.Location = new System.Drawing.Point(347, 44);
             this.infoPane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.infoPane.Name = "infoPane";
@@ -293,11 +293,11 @@
             // 
             // Symbol
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Symbol.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.Symbol.DefaultCellStyle = dataGridViewCellStyle7;
             this.Symbol.Frozen = true;
             this.Symbol.HeaderText = "Symbol";
             this.Symbol.MinimumWidth = 130;
@@ -308,13 +308,13 @@
             // 
             // Gain
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Gain.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle8.NullValue")));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.Gain.DefaultCellStyle = dataGridViewCellStyle8;
             this.Gain.Frozen = true;
             this.Gain.HeaderText = "Gain/Loss";
             this.Gain.MinimumWidth = 252;
@@ -339,26 +339,26 @@
             // price_chart
             // 
             this.price_chart.BackColor = System.Drawing.Color.Gray;
-            chartArea1.BackColor = System.Drawing.Color.Gray;
-            chartArea1.Name = "ChartArea1";
-            this.price_chart.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Silver;
-            legend1.Name = "Legend1";
-            this.price_chart.Legends.Add(legend1);
+            chartArea8.BackColor = System.Drawing.Color.Gray;
+            chartArea8.Name = "ChartArea1";
+            this.price_chart.ChartAreas.Add(chartArea8);
+            legend4.BackColor = System.Drawing.Color.Silver;
+            legend4.Name = "Legend1";
+            this.price_chart.Legends.Add(legend4);
             this.price_chart.Location = new System.Drawing.Point(17, 39);
             this.price_chart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.price_chart.Name = "price_chart";
             this.price_chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.Blue;
-            series1.Legend = "Legend1";
-            series1.Name = "Price Bought At";
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "Latest Price";
-            this.price_chart.Series.Add(series1);
-            this.price_chart.Series.Add(series2);
+            series11.ChartArea = "ChartArea1";
+            series11.Color = System.Drawing.Color.Blue;
+            series11.Legend = "Legend1";
+            series11.Name = "Price Bought At";
+            series12.ChartArea = "ChartArea1";
+            series12.Color = System.Drawing.Color.Red;
+            series12.Legend = "Legend1";
+            series12.Name = "Latest Price";
+            this.price_chart.Series.Add(series11);
+            this.price_chart.Series.Add(series12);
             this.price_chart.Size = new System.Drawing.Size(883, 287);
             this.price_chart.TabIndex = 2;
             this.price_chart.Text = "chart2";
@@ -600,16 +600,16 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.LightSlateGray;
-            chartArea2.BackColor = System.Drawing.Color.Gray;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea7.BackColor = System.Drawing.Color.Gray;
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
             this.chart1.Location = new System.Drawing.Point(275, 34);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Name = "Series1";
+            this.chart1.Series.Add(series10);
             this.chart1.Size = new System.Drawing.Size(596, 300);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -620,7 +620,7 @@
             this.latestPrice.AutoSize = true;
             this.latestPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.latestPrice.ForeColor = System.Drawing.Color.Lime;
-            this.latestPrice.Location = new System.Drawing.Point(552, 342);
+            this.latestPrice.Location = new System.Drawing.Point(509, 338);
             this.latestPrice.Name = "latestPrice";
             this.latestPrice.Size = new System.Drawing.Size(323, 29);
             this.latestPrice.TabIndex = 19;
