@@ -634,7 +634,7 @@ namespace StockBuddy
             {
                 if ((quantityTxt.Text.ToString()) != "Quantity")
                 {
-                    double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Trim());
+                    double buyPrice = Convert.ToDouble(latestPrice.Text.ToString().Substring(1).Trim());
                     double buyQuantity = Convert.ToDouble(quantityTxt.Text.ToString());
                     double avgPrice = 0;
                     double oldNetWorth = 0;
@@ -651,12 +651,12 @@ namespace StockBuddy
 
                     if (purchase == null)
                     {
-                        savedProfile.SavePurchase(symbol, Convert.ToInt32(quantityTxt.Text), Convert.ToDouble(latestPrice.Text));
+                        savedProfile.SavePurchase(symbol, Convert.ToInt32(quantityTxt.Text), Convert.ToDouble(latestPrice.Text.Substring(1)));
                     }
                     else
                     {
                         oldNetWorth = (purchase.Item2 * purchase.Item3);
-                        addNewWorth = (Convert.ToInt32(quantityTxt.Text) * Convert.ToDouble(latestPrice.Text));
+                        addNewWorth = (Convert.ToInt32(quantityTxt.Text) * Convert.ToDouble(latestPrice.Text.Substring(1)));
                         totalShares = purchase.Item2 + Convert.ToInt32(quantityTxt.Text.ToString());
                         avgPrice = (oldNetWorth + addNewWorth) / totalShares;
                         avgPrice = Math.Round(avgPrice, 2);
