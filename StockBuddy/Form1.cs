@@ -52,7 +52,7 @@ namespace StockBuddy
         private void RefreshTimer_Setup()
         {
             refreshTimer = new System.Windows.Forms.Timer();
-            refreshTimer.Interval = 5 * 1000;
+            refreshTimer.Interval = 30 * 1000;
             refreshTimer.Tick += RefreshTimer_Handler;
             refreshTimer.Enabled = true;
         }
